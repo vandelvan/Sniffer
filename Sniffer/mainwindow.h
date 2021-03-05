@@ -6,6 +6,7 @@
 #include <QString>
 #include <QFile>
 #include <QMessageBox>
+#include <locale>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +18,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    QString ethernetTypeCode(QString tipo);
     ~MainWindow();
 
 private slots:

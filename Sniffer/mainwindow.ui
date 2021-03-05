@@ -24,72 +24,21 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="2">
-      <widget class="QPushButton" name="buscarArchivo">
-       <property name="text">
-        <string>Seleccionar Archivo</string>
+     <item row="9" column="2">
+      <widget class="QLineEdit" name="macO">
+       <property name="readOnly">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="3" column="3">
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="2" column="2">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="3" column="0">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="seleccionArchivo">
+     <item row="10" column="2">
+      <widget class="QLabel" name="EthType">
        <property name="text">
-        <string/>
+        <string>Ethernet Type Code:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>32</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Practica 1 Cabecera Ethernet</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="2">
+     <item row="14" column="2">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -101,16 +50,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="4" column="2">
-      <widget class="QTextEdit" name="dumpArchivo">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
      </item>
      <item row="0" column="2">
       <spacer name="verticalSpacer_3">
@@ -124,6 +63,100 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="5" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="Titulo">
+       <property name="font">
+        <font>
+         <pointsize>32</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Practica 1 Cabecera Ethernet</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="2">
+      <widget class="QLineEdit" name="ethType">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="12" column="2">
+      <widget class="QLabel" name="datos">
+       <property name="text">
+        <string>Datos:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="seleccionArchivo">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QPushButton" name="buscarArchivo">
+       <property name="text">
+        <string>Seleccionar Archivo</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QLineEdit" name="macD">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLabel" name="labeldestino">
+       <property name="text">
+        <string>Direccion MAC Destino: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Direccion MAC Origen:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="2">
+      <widget class="QPlainTextEdit" name="dataDump">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
