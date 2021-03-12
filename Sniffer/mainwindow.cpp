@@ -31,17 +31,13 @@ void MainWindow::on_buscarArchivo_clicked()
     {
         tipo+=toupper(dump[i],loc);
     }
-    tipo=tipo+" "+splitter.ethernetTypeCode(tipo);
-    int i=28;
-    while(dump[i])
-    {
-        datos+=toupper(dump[i],loc);
-        i++;
-        if(i%2==0)
-        {
-            datos+=" ";
-        }
-    }
+    tipo=splitter.ethernetTypeCode(tipo,dump);
+
+    size_t pos = tipo.toStdString().find("\n");
+    string aux = tipo.toStdString().substr (pos);
+    aux=aux.substr(1,-1);
+    datos=QString::fromStdString(aux);
+    tipo=QString::fromStdString(tipo.toStdString().substr(0,9));
 
     ui->macD->setText(macD);
     ui->macO->setText(macO);

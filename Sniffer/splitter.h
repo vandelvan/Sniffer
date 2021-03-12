@@ -2,12 +2,13 @@
 #define SPLITTER_H
 
 #include <QString>
+#include <locale>
 
 class Splitter
 {
 public:
     Splitter();
-    QString ethernetTypeCode(QString);
+    QString ethernetTypeCode(QString,std::string);
     QString macOrigen(std::string);
     QString macDestino(std::string);
 private:
