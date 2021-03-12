@@ -10,10 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    reader.cpp \
+    splitter.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    reader.h \
+    splitter.h
 
 FORMS += \
     mainwindow.ui

@@ -1,6 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <splitter.h>
+#include <reader.h>
+
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QString>
@@ -26,5 +29,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Splitter splitter;
+    Reader reader;
 };
 #endif // MAINWINDOW_H
