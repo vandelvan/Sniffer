@@ -22,13 +22,14 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    QString ethernetTypeCode(QString tipo);
     ~MainWindow();
 
 private slots:
     void on_buscarArchivo_clicked();
 
 private:
+    void showType(QString);
+    void hideTypes();
     Ui::MainWindow *ui;
     Splitter splitter;
     Reader reader;

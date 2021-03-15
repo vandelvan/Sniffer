@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->Datos->sizePolicy().setRetainSizeWhenHidden(false);
+    ui->Ipv4->sizePolicy().setRetainSizeWhenHidden(false);
+    hideTypes();
 }
 
 MainWindow::~MainWindow()
@@ -22,6 +25,7 @@ void MainWindow::on_buscarArchivo_clicked()
     ui->seleccionArchivo->setText(fileName);
     QByteArray byteArray = reader.readFile(fileName);
     if(byteArray == nullptr) return;
+    hideTypes();
 
     QString macD="",macO="",tipo="",datos="";
     string dump=byteArray.toHex().toStdString();
@@ -31,7 +35,9 @@ void MainWindow::on_buscarArchivo_clicked()
     {
         tipo+=toupper(dump[i],loc);
     }
+    showType(tipo);
     tipo=splitter.ethernetTypeCode(tipo,dump);
+
 
     size_t pos = tipo.toStdString().find("\n");
     string aux = tipo.toStdString().substr (pos);
@@ -43,4 +49,19 @@ void MainWindow::on_buscarArchivo_clicked()
     ui->macO->setText(macO);
     ui->ethType->setText(tipo);
     ui->dataDump->setPlainText(datos);
+}
+
+void MainWindow::showType(QString tipo)
+{
+    if(tipo == "0800")
+        ui->Ipv4->show();
+    else
+        ui->Datos->show();
+
+}
+
+void MainWindow::hideTypes()
+{
+    ui->Datos->hide();
+    ui->Ipv4->hide();
 }

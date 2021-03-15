@@ -1,2 +1,2 @@
 # Sniffer
-jjjjoaco turromantiko
+Proyecto Seminario de redes
