@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->Datos->sizePolicy().setRetainSizeWhenHidden(false);
     ui->Ipv4->sizePolicy().setRetainSizeWhenHidden(false);
+    ui->scrollArea->hide();
     hideTypes();
 }
 
@@ -26,6 +27,7 @@ void MainWindow::on_buscarArchivo_clicked()
     ui->seleccionArchivo->setText(fileName);
     QByteArray byteArray = reader.readFile(fileName);
     if(byteArray == nullptr) return;
+    ui->scrollArea->show();
     hideTypes();
 
     QString macD="",macO="",tipo="",datos="";
