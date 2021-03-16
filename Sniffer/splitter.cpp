@@ -11,7 +11,10 @@ Splitter::Splitter()
 QString Splitter::ethernetTypeCode(QString tipo,string dump)
 {
     QString tipoNData="";
+    bool flag=true;
     int i=28;
+
+    //Tipo
     if(tipo=="0800")
     {
         tipoNData=tipo+" IPv4\n";
@@ -19,37 +22,27 @@ QString Splitter::ethernetTypeCode(QString tipo,string dump)
     else if(tipo=="0806")
     {
         tipoNData=tipo+" ARP \n";
-        //Cambiar cuando lleguemos
-        while(dump[i])
-        {
-            tipoNData+=toupper(dump[i],loc);
-            i++;
-            if(i%2==0)
-            {
-                tipoNData+=" ";
-            }
-        }
+
     }
     else if(tipo=="8035")
     {
         tipoNData=tipo+" RARP\n";
 
-        //Cambiar cuando lleguemos
-        while(dump[i])
-        {
-            tipoNData+=toupper(dump[i],loc);
-            i++;
-            if(i%2==0)
-            {
-                tipoNData+=" ";
-            }
-        }
+
     }
     else if(tipo=="86DD")
     {
         tipoNData=tipo+" IPv6\n";
+    }
+    else
+    {
+        tipoNData="Invalid Type\n";
+        flag=false;
+    }
 
-        //Cambiar cuando lleguemos
+    if(flag)
+    {
+        //Paquete
         while(dump[i])
         {
             tipoNData+=toupper(dump[i],loc);
@@ -59,10 +52,6 @@ QString Splitter::ethernetTypeCode(QString tipo,string dump)
                 tipoNData+=" ";
             }
         }
-    }
-    else
-    {
-        tipoNData="Invalid Type\n";
     }
     return tipoNData;
 }

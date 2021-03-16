@@ -57,39 +57,146 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
-          <width>580</width>
-          <height>444</height>
+          <y>-578</y>
+          <width>519</width>
+          <height>980</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_4">
-         <item row="1" column="1">
-          <widget class="QPushButton" name="buscarArchivo">
-           <property name="text">
-            <string>Seleccionar Archivo</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QLineEdit" name="macO">
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item row="10" column="1">
           <widget class="QGroupBox" name="Ipv4">
            <property name="enabled">
             <bool>true</bool>
            </property>
            <property name="title">
-            <string>Ipv4</string>
+            <string>IPv4</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
+            <item row="18" column="0">
+             <widget class="QLineEdit" name="Protocolo"/>
+            </item>
+            <item row="9" column="0">
+             <widget class="QLabel" name="labelID">
+              <property name="text">
+               <string>Identificador:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <widget class="QLabel" name="labelFlags">
+              <property name="text">
+               <string>Flags:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="16" column="0">
+             <widget class="QLineEdit" name="TTL">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="19" column="0">
+             <widget class="QLabel" name="labelChecksum">
+              <property name="text">
+               <string>Checksum:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="20" column="0">
+             <widget class="QLineEdit" name="Checksum"/>
+            </item>
             <item row="1" column="0">
              <widget class="QLabel" name="labelversion_ipv4">
               <property name="text">
-               <string>Version</string>
+               <string>Version:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="14" column="0">
+             <widget class="QLineEdit" name="posicionFragmento">
+              <property name="readOnly">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="17" column="0">
+             <widget class="QLabel" name="labelProtocolo">
+              <property name="text">
+               <string>Protocolo:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="0">
+             <widget class="QPlainTextEdit" name="flags">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QTextEdit" name="tipo_Servicio">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLineEdit" name="ihl">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="22" column="0">
+             <widget class="QLineEdit" name="IPO"/>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLineEdit" name="ID">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="23" column="0">
+             <widget class="QLabel" name="labelIPD">
+              <property name="text">
+               <string>IP Destino:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLineEdit" name="longitud_Total">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="labeltipo_Servicio">
+              <property name="text">
+               <string>Tipo de servicio:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="labellonTotal">
+              <property name="text">
+               <string>Longitud Total:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="21" column="0">
+             <widget class="QLabel" name="labelIPO">
+              <property name="text">
+               <string>IP Origen:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelihl">
+              <property name="text">
+               <string>Tamaño de cabecera (IHL):</string>
               </property>
              </widget>
             </item>
@@ -100,21 +207,24 @@
               </property>
              </widget>
             </item>
+            <item row="13" column="0">
+             <widget class="QLabel" name="labelPosicionFrag">
+              <property name="text">
+               <string>Posición de Fragmento:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="15" column="0">
+             <widget class="QLabel" name="labelTTL">
+              <property name="text">
+               <string>Tiempo de Vida(TTL):</string>
+              </property>
+             </widget>
+            </item>
+            <item row="24" column="0">
+             <widget class="QLineEdit" name="IPD"/>
+            </item>
            </layout>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="labeldestino">
-           <property name="text">
-            <string>Direccion MAC Destino: </string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="QLabel" name="EthType">
-           <property name="text">
-            <string>Ethernet Type Code:</string>
-           </property>
           </widget>
          </item>
          <item row="9" column="1">
@@ -136,15 +246,8 @@
            </layout>
           </widget>
          </item>
-         <item row="8" column="1">
-          <widget class="QLineEdit" name="ethType">
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="macD">
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="macO">
            <property name="readOnly">
             <bool>true</bool>
            </property>
@@ -157,10 +260,45 @@
            </property>
           </widget>
          </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="buscarArchivo">
+           <property name="text">
+            <string>Seleccionar Archivo</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="1">
           <widget class="QLabel" name="seleccionArchivo">
            <property name="text">
             <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="ethType">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLabel" name="EthType">
+           <property name="text">
+            <string>Ethernet Type Code:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="macD">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="labeldestino">
+           <property name="text">
+            <string>Direccion MAC Destino: </string>
            </property>
           </widget>
          </item>
@@ -218,7 +356,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Sniffer de red Equipo 1 D03</string>
+        <string>Sniffer de Red Equipo 1 D03</string>
        </property>
       </widget>
      </item>
