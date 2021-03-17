@@ -59,11 +59,11 @@ void MainWindow::on_buscarArchivo_clicked()
 void MainWindow::showEthernetInfo(QString tipo,QString data)
 {
     QString paquete,aux;
-
+    paquete=conversor.toBinary(data);
     string cadena,cadena2;
     if(tipo == "0800 IPv4")
     {
-        paquete=conversor.toBinary(data);
+
         ui->Ipv4->show();
         //Version
         cadena=paquete.toStdString().substr(0,4);
@@ -147,7 +147,7 @@ void MainWindow::showEthernetInfo(QString tipo,QString data)
         ui->Protocolo->setText(QString::fromStdString(cadena));
 
         //Checksum
-        int i;
+        int i=0;
         cadena=data.toStdString().substr(30,5);
         cadena2="";
         while(cadena[i])
@@ -192,7 +192,7 @@ void MainWindow::showEthernetInfo(QString tipo,QString data)
     else
     {
         ui->Datos->show();
-        ui->dataDump->setPlainText(paquete);
+        ui->dataDump->setPlainText(data);
     }
 
 }
