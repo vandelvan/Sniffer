@@ -1,18 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <splitter.h>
-#include <reader.h>
-#include <conversor.h>
-
 #include <QMainWindow>
-#include <QFileDialog>
-#include <QString>
-#include <QFile>
-#include <QMessageBox>
-#include <locale>
 #include <string>
 
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,14 +19,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_buscarArchivo_clicked();
+    void on_seleccionarArchivo_clicked();
 
 private:
-    void showEthernetInfo(QString,QString);
-    void hideTypes();
     Ui::MainWindow *ui;
-    Splitter splitter;
-    Conversor conversor;
-    Reader reader;
+    void showEthernet(string);
+    void showIP(string);
 };
 #endif // MAINWINDOW_H

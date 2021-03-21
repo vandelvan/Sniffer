@@ -1,5 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "reader.h"
+#include "conversor.h"
+#include "splitter.h"
+
+#include <QString>
+#include <QFileDialog>
+#include <QDebug>
 
 using namespace std;
 
@@ -8,10 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->Datos->sizePolicy().setRetainSizeWhenHidden(false);
-    ui->Ipv4->sizePolicy().setRetainSizeWhenHidden(false);
-    ui->scrollArea->hide();
-    hideTypes();
+    ui->pathArchivo->hide();
+    ui->datosPaquete->hide();
+    ui->datosEthernet->hide();
+    ui->datosIP->hide();
 }
 
 MainWindow::~MainWindow()
@@ -19,186 +26,55 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_buscarArchivo_clicked()
+void MainWindow::on_seleccionarArchivo_clicked()
 {
-    std::locale loc;
+    this->resize(440, 200);
+    ui->pathArchivo->hide();
+    ui->datosPaquete->hide();
+    ui->datosEthernet->hide();
+    ui->datosIP->hide();
     QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir bin"), "~/", tr("*.bin"));
-    ui->seleccionArchivo->setText(fileName);
-    QByteArray byteArray = reader.readFile(fileName);
-    if(byteArray == nullptr) return;
-    ui->scrollArea->show();
-    hideTypes();
-
-    QString macD="",macO="",tipo="",datos="";
-    string dump=byteArray.toHex().toStdString();
-
-    macD = splitter.macDestino(dump);
-    macO = splitter.macOrigen(dump);
-    for(int i=24;i<28;i++)
-    {
-        tipo+=toupper(dump[i],loc);
+    QByteArray byteArray = readFile(fileName);
+    if(byteArray == nullptr){
+        return;
+    }else{
+        ui->pathArchivo->setText(fileName);
+        ui->pathArchivo->show();
+        showEthernet(byteArray.toHex().toStdString());
     }
-
-    tipo=splitter.ethernetTypeCode(tipo,dump);
-
-
-    size_t pos = tipo.toStdString().find("\n");
-    string aux = tipo.toStdString().substr (pos);
-    aux=aux.substr(1,-1);
-    datos=QString::fromStdString(aux);
-    tipo=QString::fromStdString(tipo.toStdString().substr(0,9));
-    showEthernetInfo(tipo,datos);
-
-    ui->macD->setText(macD);
-    ui->macO->setText(macO);
-    ui->ethType->setText(tipo);
-
 }
 
-void MainWindow::showEthernetInfo(QString tipo,QString data)
-{
-    QString paquete,aux;
-    paquete=conversor.toBinary(data);
-    string cadena,cadena2;
-    if(tipo == "0800 IPv4")
-    {
-
-        ui->Ipv4->show();
-        //Version
-        cadena=paquete.toStdString().substr(0,4);
-        ui->version_Ipv4->setText(conversor.stringToDecimalQString(cadena));
-
-        //Tamaño de cabecera
-        cadena=paquete.toStdString().substr(4,4);
-        ui->ihl->setText(conversor.stringToDecimalQString(cadena)+" Palabras");
-
-        //Tipo de servicio
-        cadena=paquete.toStdString().substr(8,3);
-        cadena2="Prioridad: ";
-        if(cadena=="000")
-            cadena2+="De Rutina\n";
-        else if(cadena=="001")
-            cadena2+="Prioritario\n";
-        else if(cadena=="010")
-            cadena2+="Inmediato\n";
-        else if(cadena=="011")
-            cadena2+="Relampago\n";
-        else if(cadena=="100")
-            cadena2+="Invalidacion Relampago\n";
-        else if(cadena=="101")
-            cadena2+="Procesando llamada crítica y de emergencia\n";
-        else if(cadena=="110")
-            cadena2+="Control de trabajo de Internet\n";
-        else if(cadena=="111")
-            cadena2+="Control de red\n";
-        else
-            cadena2+="Error\n";
-
-        cadena=paquete.toStdString().substr(11,1);
-        cadena2+="Retardo: "+conversor.bitRead(cadena,1)+"\n";
-        cadena=paquete.toStdString().substr(12,1);
-        cadena2+="Rendimiento: "+conversor.bitRead(cadena,2)+"\n";
-        cadena=paquete.toStdString().substr(13,1);
-        cadena2+="Fiabilidad: "+conversor.bitRead(cadena,2)+"\n";
-        ui->tipo_Servicio->setPlainText(QString::fromStdString(cadena2));
-
-        //Longitud Total
-        cadena=paquete.toStdString().substr(16,16);
-        ui->longitud_Total->setText(conversor.stringToDecimalQString(cadena));
-
-        //Identificador
-        cadena=paquete.toStdString().substr(32,16);
-        ui->ID->setText(conversor.stringToDecimalQString(cadena));
-
-        //Banderas
-        cadena=paquete.toStdString().substr(49,1);
-        cadena2="Reservado\n";
-        cadena2+=conversor.bitRead(cadena,3)+"\n";
-        cadena=paquete.toStdString().substr(50,1);
-        cadena2+=conversor.bitRead(cadena,4)+"\n";
-        ui->flags->setPlainText(QString::fromStdString(cadena2));
-
-        //Posición de fragmento
-        cadena=paquete.toStdString().substr(51,13);
-        ui->posicionFragmento->setText(conversor.stringToDecimalQString(cadena));
-
-        //Tiempo de vida
-        cadena=paquete.toStdString().substr(64,8);
-        ui->TTL->setText(conversor.stringToDecimalQString(cadena));
-
-        //Protocolo
-        cadena=paquete.toStdString().substr(72,8);
-        cadena2=conversor.stringToDecimalQString(cadena).toStdString();
-        if(cadena2=="1")
-            cadena="ICMPv4";
-        else if(cadena2=="6")
-            cadena="TCP";
-        else if(cadena2=="17")
-            cadena="UDP";
-        else if(cadena2=="58")
-            cadena="ICMPv6";
-        else if(cadena2=="118")
-            cadena="STP";
-        else if(cadena2=="121")
-            cadena="SMP";
-        else
-            cadena="Otro";
-        ui->Protocolo->setText(QString::fromStdString(cadena));
-
-        //Checksum
-        int i=0;
-        cadena=data.toStdString().substr(30,5);
-        cadena2="";
-        while(cadena[i])
-        {
-            if(cadena[i]!=' ')
-            {
-                cadena2+=cadena[i];
-            }
-            i++;
-        }
-        ui->Checksum->setText(QString::fromStdString(cadena2));
-
-        //IP Origen
-        cadena=paquete.toStdString().substr(96,8);
-        aux=conversor.stringToDecimalQString(cadena)+".";
-        cadena=paquete.toStdString().substr(104,8);
-        aux+=conversor.stringToDecimalQString(cadena)+".";
-        cadena=paquete.toStdString().substr(112,8);
-        aux+=conversor.stringToDecimalQString(cadena)+".";
-        cadena=paquete.toStdString().substr(120,8);
-        aux+=conversor.stringToDecimalQString(cadena);
-        ui->IPO->setText(aux);
-
-        //IP Destino
-        cadena=paquete.toStdString().substr(128,8);
-        aux=conversor.stringToDecimalQString(cadena)+".";
-        cadena=paquete.toStdString().substr(136,8);
-        aux+=conversor.stringToDecimalQString(cadena)+".";
-        cadena=paquete.toStdString().substr(144,8);
-        aux+=conversor.stringToDecimalQString(cadena)+".";
-        cadena=paquete.toStdString().substr(152,8);
-        aux+=conversor.stringToDecimalQString(cadena);
-        ui->IPD->setText(aux);
-
-        //Datos extra
-        cadena=data.toStdString().substr(60);
-        ui->datosExtra->setPlainText(QString::fromStdString(cadena));
-
-
-
+void MainWindow::showEthernet(string dump){
+    QString tipo="";
+    tipo = tipoCodigo(dump);
+    ui->datosPaquete->show();
+    ui->macDestinoTxt->setText(macDestino(dump));
+    ui->macOrigenTxt->setText(macOrigen(dump));
+    ui->etherTypeTxt->setText(tipo);
+    if(tipo == "0800 IPv4"){
+        ui->datosEthernet->hide();
+        showIP(dump.substr(28));
+        this->resize(440, 800);
+    }else{
+        this->resize(440, 460);
+        ui->datosEthernet->show();
+        ui->textEdit->setText(hexToBinaryQString(dump.substr(28)));
     }
-    else
-    {
-        ui->Datos->show();
-        ui->dataDump->setPlainText(data);
-    }
-
 }
 
-void MainWindow::hideTypes()
-{
-    ui->Datos->hide();
-    ui->Ipv4->hide();
+void MainWindow::showIP(string dump){
+    QString binary = hexToBinaryQString(dump);
+    ui->versionIPTxt->setText(versionIP(binary.mid(0, 4)));
+    ui->cabeceraTxt->setText(tamanoCabecera(binary.mid(4, 4)));
+    ui->tipoServicioTxt->setText(tipoSer(binary.mid(8, 6)));
+    ui->longitudTxt->setText(binarioToDecimal(binary.mid(16, 16)));
+    ui->identificadorTxt->setText(binarioToDecimal(binary.mid(32, 16)));
+    ui->flagsTxt->setText(flags(binary.mid(49, 2)));
+    ui->fragmentoTxt->setText(binarioToDecimal(binary.mid(51, 13)));
+    ui->ttlTxt->setText(binarioToDecimal(binary.mid(64, 8)));
+    ui->protocoloTxt->setText(tipoProtocolo(binary.mid(72, 8)));
+    ui->checksumTxt->setText(binarioToHex(binary.mid(80, 16)));
+    ui->ipOrigenTxt->setText(setIP(binary.mid(96, 32)));
+    ui->ipDestinoTxt->setText(setIP(binary.mid(128, 32)));
+    ui->datosIP->show();
 }
