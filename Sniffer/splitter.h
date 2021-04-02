@@ -183,4 +183,16 @@ QString setIP(QString aux){
     return salida;
 }
 
+QString setDatos(QString aux){
+    QString salida;
+    for(int i=0; i<aux.length(); i++){
+        salida+=aux[i];
+        if(i%2==1){
+            salida+=":";
+        }
+    }
+    salida[salida.length()-1]=' ';
+    return salida;
+}
+
 #endif // SPLITTER_H

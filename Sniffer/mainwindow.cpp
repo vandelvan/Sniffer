@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->datosPaquete->hide();
     ui->datosEthernet->hide();
     ui->datosIP->hide();
+    ui->datosICMPv4->hide();
 }
 
 MainWindow::~MainWindow()
@@ -63,7 +64,7 @@ void MainWindow::showEthernet(string dump){
 }
 
 void MainWindow::showIP(string dump){
-    QString binary = hexToBinaryQString(dump);
+    QString binary = hexToBinaryQString(dump), protocolo;
     ui->versionIPTxt->setText(versionIP(binary.mid(0, 4)));
     ui->cabeceraTxt->setText(tamanoCabecera(binary.mid(4, 4)));
     ui->tipoServicioTxt->setText(tipoSer(binary.mid(8, 6)));
@@ -72,9 +73,22 @@ void MainWindow::showIP(string dump){
     ui->flagsTxt->setText(flags(binary.mid(49, 2)));
     ui->fragmentoTxt->setText(binarioToDecimal(binary.mid(51, 13)));
     ui->ttlTxt->setText(binarioToDecimal(binary.mid(64, 8)));
-    ui->protocoloTxt->setText(tipoProtocolo(binary.mid(72, 8)));
+    protocolo=tipoProtocolo(binary.mid(72, 8));
+    ui->protocoloTxt->setText(protocolo);
     ui->checksumTxt->setText(binarioToHex(binary.mid(80, 16)));
     ui->ipOrigenTxt->setText(setIP(binary.mid(96, 32)));
     ui->ipDestinoTxt->setText(setIP(binary.mid(128, 32)));
     ui->datosIP->show();
+    if(protocolo=="ICMPv4"){
+        showICMPv4(dump.substr(40));
+    }
+}
+
+void MainWindow::showICMPv4(string dump){
+    QString binary = hexToBinaryQString(dump);
+    ui->tipoICMPv4Txt->setText(binarioToDecimal(binary.mid(0, 8)));
+    ui->codeICMPv4Txt->setText(binarioToDecimal(binary.mid(8, 8)));
+    ui->checksumICMPv4Txt->setText(binarioToHex(binary.mid(16, 16)));
+    ui->datosICMPv4Txt->setText(setDatos(QString::fromStdString(dump.substr(8)).toUpper()));
+    ui->datosICMPv4->show();
 }

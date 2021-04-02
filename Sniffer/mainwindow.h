@@ -25,5 +25,6 @@ private:
     Ui::MainWindow *ui;
     void showEthernet(string);
     void showIP(string);
+    void showICMPv4(string);
 };
 #endif // MAINWINDOW_H
