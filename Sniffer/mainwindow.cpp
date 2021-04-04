@@ -34,11 +34,15 @@ void MainWindow::on_seleccionarArchivo_clicked()
     ui->datosPaquete->hide();
     ui->datosEthernet->hide();
     ui->datosIP->hide();
+    ui->datosICMPv4->hide();
     QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir bin"), "~/", tr("*.bin"));
     QByteArray byteArray = readFile(fileName);
-    if(byteArray == nullptr){
+    if(byteArray == nullptr)
+    {
         return;
-    }else{
+    }
+    else
+    {
         ui->pathArchivo->setText(fileName);
         ui->pathArchivo->show();
         showEthernet(byteArray.toHex().toStdString());
@@ -79,7 +83,8 @@ void MainWindow::showIP(string dump){
     ui->ipOrigenTxt->setText(setIP(binary.mid(96, 32)));
     ui->ipDestinoTxt->setText(setIP(binary.mid(128, 32)));
     ui->datosIP->show();
-    if(protocolo=="ICMPv4"){
+    if(protocolo=="ICMPv4")
+    {
         showICMPv4(dump.substr(40));
     }
 }

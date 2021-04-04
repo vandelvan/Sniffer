@@ -11,16 +11,14 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,317 +27,482 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *gridLayoutWidget;
-    QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer;
-    QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *verticalSpacer;
-    QSpacerItem *verticalSpacer_2;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QGridLayout *gridLayout_4;
-    QLabel *seleccionArchivo;
-    QGroupBox *Datos;
-    QGridLayout *gridLayout_3;
-    QPlainTextEdit *dataDump;
-    QLabel *label;
-    QLabel *labeldestino;
-    QLabel *EthType;
-    QGroupBox *Ipv4;
-    QGridLayout *gridLayout_2;
-    QLineEdit *IPD;
-    QLineEdit *ihl;
-    QLabel *labelPosicionFrag;
-    QLineEdit *version_Ipv4;
-    QLabel *labelProtocolo;
-    QLabel *labelID;
-    QLabel *labelihl;
-    QLabel *labelChecksum;
-    QLineEdit *Protocolo;
-    QLineEdit *posicionFragmento;
-    QLabel *labelDatosExtra;
-    QLabel *labelIPD;
-    QPlainTextEdit *flags;
-    QLineEdit *Checksum;
-    QLineEdit *longitud_Total;
-    QTextEdit *tipo_Servicio;
-    QLabel *labellonTotal;
-    QLineEdit *TTL;
-    QLineEdit *ID;
-    QLabel *labelIPO;
-    QLabel *labeltipo_Servicio;
-    QLineEdit *IPO;
-    QLabel *labelversion_ipv4;
-    QLabel *labelFlags;
-    QLabel *labelTTL;
-    QPlainTextEdit *datosExtra;
-    QLineEdit *macD;
-    QLineEdit *macO;
-    QLineEdit *ethType;
-    QLabel *Titulo;
-    QPushButton *buscarArchivo;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *tituloPrograma;
+    QPushButton *seleccionarArchivo;
+    QLabel *pathArchivo;
+    QScrollArea *datosPaquete;
+    QWidget *scrollAreaWidgetContents_2;
+    QVBoxLayout *verticalLayout_3;
+    QVBoxLayout *macOrigen;
+    QLabel *macOrigenLbl;
+    QLineEdit *macOrigenTxt;
+    QVBoxLayout *macDestino;
+    QLabel *macDestinoLbl;
+    QLineEdit *macDestinoTxt;
+    QVBoxLayout *ethernetType;
+    QLabel *etherTypeLbl;
+    QLineEdit *etherTypeTxt;
+    QGroupBox *datosEthernet;
+    QVBoxLayout *verticalLayout;
+    QTextEdit *textEdit;
+    QGroupBox *datosIP;
+    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *versionIP;
+    QLabel *versionIPLbl;
+    QLineEdit *versionIPTxt;
+    QVBoxLayout *cabecera;
+    QLabel *cabeceraLbl;
+    QLineEdit *cabeceraTxt;
+    QVBoxLayout *tipoServicio;
+    QLabel *tipoServicioLbl;
+    QTextEdit *tipoServicioTxt;
+    QVBoxLayout *longitud;
+    QLabel *longitudLbl;
+    QLineEdit *longitudTxt;
+    QVBoxLayout *identificador;
+    QLabel *identificadorLbl;
+    QLineEdit *identificadorTxt;
+    QVBoxLayout *flags;
+    QLabel *flagsLbl;
+    QTextEdit *flagsTxt;
+    QVBoxLayout *fragmento;
+    QLabel *fragmentoLbl;
+    QLineEdit *fragmentoTxt;
+    QVBoxLayout *ttl;
+    QLabel *ttlLbl;
+    QLineEdit *ttlTxt;
+    QVBoxLayout *protocolo;
+    QLabel *protocoloLbl;
+    QLineEdit *protocoloTxt;
+    QVBoxLayout *checksum;
+    QLabel *checksumLbl;
+    QLineEdit *checksumTxt;
+    QVBoxLayout *ipOrigen;
+    QLabel *ipOrigenLbl;
+    QLineEdit *ipOrigenTxt;
+    QVBoxLayout *ipDestino;
+    QLabel *ipDestinoLbl;
+    QLineEdit *ipDestinoTxt;
+    QGroupBox *datosICMPv4;
+    QVBoxLayout *verticalLayout_5;
+    QVBoxLayout *tipoICMPv4;
+    QLabel *tipoICMPv4Lbl;
+    QLineEdit *tipoICMPv4Txt;
+    QVBoxLayout *codeICMPv4;
+    QLabel *codeICMPv4Lbl;
+    QLineEdit *codeICMPv4Txt;
+    QVBoxLayout *checksumICMPv4;
+    QLabel *checksumICMPv4Lbl;
+    QLineEdit *checksumICMPv4Txt;
+    QVBoxLayout *datosICMP;
+    QLabel *datosICMPv4Lbl;
+    QTextEdit *datosICMPv4Txt;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 929);
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        MainWindow->setEnabled(true);
+        MainWindow->resize(440, 200);
+        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMinimumSize(QSize(0, 0));
+        MainWindow->setMinimumSize(QSize(440, 200));
+        MainWindow->setMaximumSize(QSize(440, 800));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
-        centralwidget->setSizePolicy(sizePolicy);
-        centralwidget->setMinimumSize(QSize(0, 0));
-        gridLayoutWidget = new QWidget(centralwidget);
-        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(40, 0, 690, 770));
-        gridLayout = new QGridLayout(gridLayoutWidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 4, 0, 1, 1);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_2, 4, 3, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Minimum);
-
-        gridLayout->addItem(verticalSpacer, 6, 2, 1, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Minimum);
-
-        gridLayout->addItem(verticalSpacer_2, 0, 2, 1, 1);
-
-        scrollArea = new QScrollArea(gridLayoutWidget);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, -685, 441, 1047));
-        gridLayout_4 = new QGridLayout(scrollAreaWidgetContents);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        seleccionArchivo = new QLabel(scrollAreaWidgetContents);
-        seleccionArchivo->setObjectName(QString::fromUtf8("seleccionArchivo"));
-
-        gridLayout_4->addWidget(seleccionArchivo, 0, 1, 1, 1);
-
-        Datos = new QGroupBox(scrollAreaWidgetContents);
-        Datos->setObjectName(QString::fromUtf8("Datos"));
-        Datos->setEnabled(true);
-        gridLayout_3 = new QGridLayout(Datos);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        dataDump = new QPlainTextEdit(Datos);
-        dataDump->setObjectName(QString::fromUtf8("dataDump"));
-        dataDump->setReadOnly(true);
-
-        gridLayout_3->addWidget(dataDump, 1, 0, 1, 1);
-
-
-        gridLayout_4->addWidget(Datos, 9, 1, 1, 1);
-
-        label = new QLabel(scrollAreaWidgetContents);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout_4->addWidget(label, 5, 1, 1, 1);
-
-        labeldestino = new QLabel(scrollAreaWidgetContents);
-        labeldestino->setObjectName(QString::fromUtf8("labeldestino"));
-
-        gridLayout_4->addWidget(labeldestino, 2, 1, 1, 1);
-
-        EthType = new QLabel(scrollAreaWidgetContents);
-        EthType->setObjectName(QString::fromUtf8("EthType"));
-
-        gridLayout_4->addWidget(EthType, 7, 1, 1, 1);
-
-        Ipv4 = new QGroupBox(scrollAreaWidgetContents);
-        Ipv4->setObjectName(QString::fromUtf8("Ipv4"));
-        Ipv4->setEnabled(true);
-        gridLayout_2 = new QGridLayout(Ipv4);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        IPD = new QLineEdit(Ipv4);
-        IPD->setObjectName(QString::fromUtf8("IPD"));
-
-        gridLayout_2->addWidget(IPD, 24, 0, 1, 1);
-
-        ihl = new QLineEdit(Ipv4);
-        ihl->setObjectName(QString::fromUtf8("ihl"));
-        ihl->setReadOnly(true);
-
-        gridLayout_2->addWidget(ihl, 4, 0, 1, 1);
-
-        labelPosicionFrag = new QLabel(Ipv4);
-        labelPosicionFrag->setObjectName(QString::fromUtf8("labelPosicionFrag"));
-
-        gridLayout_2->addWidget(labelPosicionFrag, 13, 0, 1, 1);
-
-        version_Ipv4 = new QLineEdit(Ipv4);
-        version_Ipv4->setObjectName(QString::fromUtf8("version_Ipv4"));
-        version_Ipv4->setReadOnly(true);
-
-        gridLayout_2->addWidget(version_Ipv4, 2, 0, 1, 1);
-
-        labelProtocolo = new QLabel(Ipv4);
-        labelProtocolo->setObjectName(QString::fromUtf8("labelProtocolo"));
-
-        gridLayout_2->addWidget(labelProtocolo, 17, 0, 1, 1);
-
-        labelID = new QLabel(Ipv4);
-        labelID->setObjectName(QString::fromUtf8("labelID"));
-
-        gridLayout_2->addWidget(labelID, 9, 0, 1, 1);
-
-        labelihl = new QLabel(Ipv4);
-        labelihl->setObjectName(QString::fromUtf8("labelihl"));
-
-        gridLayout_2->addWidget(labelihl, 3, 0, 1, 1);
-
-        labelChecksum = new QLabel(Ipv4);
-        labelChecksum->setObjectName(QString::fromUtf8("labelChecksum"));
-
-        gridLayout_2->addWidget(labelChecksum, 19, 0, 1, 1);
-
-        Protocolo = new QLineEdit(Ipv4);
-        Protocolo->setObjectName(QString::fromUtf8("Protocolo"));
-
-        gridLayout_2->addWidget(Protocolo, 18, 0, 1, 1);
-
-        posicionFragmento = new QLineEdit(Ipv4);
-        posicionFragmento->setObjectName(QString::fromUtf8("posicionFragmento"));
-        posicionFragmento->setReadOnly(false);
-
-        gridLayout_2->addWidget(posicionFragmento, 14, 0, 1, 1);
-
-        labelDatosExtra = new QLabel(Ipv4);
-        labelDatosExtra->setObjectName(QString::fromUtf8("labelDatosExtra"));
-
-        gridLayout_2->addWidget(labelDatosExtra, 25, 0, 1, 1);
-
-        labelIPD = new QLabel(Ipv4);
-        labelIPD->setObjectName(QString::fromUtf8("labelIPD"));
-
-        gridLayout_2->addWidget(labelIPD, 23, 0, 1, 1);
-
-        flags = new QPlainTextEdit(Ipv4);
-        flags->setObjectName(QString::fromUtf8("flags"));
-        flags->setReadOnly(true);
-
-        gridLayout_2->addWidget(flags, 12, 0, 1, 1);
-
-        Checksum = new QLineEdit(Ipv4);
-        Checksum->setObjectName(QString::fromUtf8("Checksum"));
-
-        gridLayout_2->addWidget(Checksum, 20, 0, 1, 1);
-
-        longitud_Total = new QLineEdit(Ipv4);
-        longitud_Total->setObjectName(QString::fromUtf8("longitud_Total"));
-        longitud_Total->setReadOnly(true);
-
-        gridLayout_2->addWidget(longitud_Total, 8, 0, 1, 1);
-
-        tipo_Servicio = new QTextEdit(Ipv4);
-        tipo_Servicio->setObjectName(QString::fromUtf8("tipo_Servicio"));
-        tipo_Servicio->setReadOnly(true);
-
-        gridLayout_2->addWidget(tipo_Servicio, 6, 0, 1, 1);
-
-        labellonTotal = new QLabel(Ipv4);
-        labellonTotal->setObjectName(QString::fromUtf8("labellonTotal"));
-
-        gridLayout_2->addWidget(labellonTotal, 7, 0, 1, 1);
-
-        TTL = new QLineEdit(Ipv4);
-        TTL->setObjectName(QString::fromUtf8("TTL"));
-        TTL->setReadOnly(true);
-
-        gridLayout_2->addWidget(TTL, 16, 0, 1, 1);
-
-        ID = new QLineEdit(Ipv4);
-        ID->setObjectName(QString::fromUtf8("ID"));
-        ID->setReadOnly(true);
-
-        gridLayout_2->addWidget(ID, 10, 0, 1, 1);
-
-        labelIPO = new QLabel(Ipv4);
-        labelIPO->setObjectName(QString::fromUtf8("labelIPO"));
-
-        gridLayout_2->addWidget(labelIPO, 21, 0, 1, 1);
-
-        labeltipo_Servicio = new QLabel(Ipv4);
-        labeltipo_Servicio->setObjectName(QString::fromUtf8("labeltipo_Servicio"));
-
-        gridLayout_2->addWidget(labeltipo_Servicio, 5, 0, 1, 1);
-
-        IPO = new QLineEdit(Ipv4);
-        IPO->setObjectName(QString::fromUtf8("IPO"));
-
-        gridLayout_2->addWidget(IPO, 22, 0, 1, 1);
-
-        labelversion_ipv4 = new QLabel(Ipv4);
-        labelversion_ipv4->setObjectName(QString::fromUtf8("labelversion_ipv4"));
-
-        gridLayout_2->addWidget(labelversion_ipv4, 1, 0, 1, 1);
-
-        labelFlags = new QLabel(Ipv4);
-        labelFlags->setObjectName(QString::fromUtf8("labelFlags"));
-
-        gridLayout_2->addWidget(labelFlags, 11, 0, 1, 1);
-
-        labelTTL = new QLabel(Ipv4);
-        labelTTL->setObjectName(QString::fromUtf8("labelTTL"));
-
-        gridLayout_2->addWidget(labelTTL, 15, 0, 1, 1);
-
-        datosExtra = new QPlainTextEdit(Ipv4);
-        datosExtra->setObjectName(QString::fromUtf8("datosExtra"));
-
-        gridLayout_2->addWidget(datosExtra, 26, 0, 1, 1);
-
-
-        gridLayout_4->addWidget(Ipv4, 10, 1, 1, 1);
-
-        macD = new QLineEdit(scrollAreaWidgetContents);
-        macD->setObjectName(QString::fromUtf8("macD"));
-        macD->setReadOnly(true);
-
-        gridLayout_4->addWidget(macD, 4, 1, 1, 1);
-
-        macO = new QLineEdit(scrollAreaWidgetContents);
-        macO->setObjectName(QString::fromUtf8("macO"));
-        macO->setReadOnly(true);
-
-        gridLayout_4->addWidget(macO, 6, 1, 1, 1);
-
-        ethType = new QLineEdit(scrollAreaWidgetContents);
-        ethType->setObjectName(QString::fromUtf8("ethType"));
-        ethType->setReadOnly(true);
-
-        gridLayout_4->addWidget(ethType, 8, 1, 1, 1);
-
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        gridLayout->addWidget(scrollArea, 3, 2, 3, 1);
-
-        Titulo = new QLabel(gridLayoutWidget);
-        Titulo->setObjectName(QString::fromUtf8("Titulo"));
+        verticalLayout_4 = new QVBoxLayout(centralwidget);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        tituloPrograma = new QLabel(centralwidget);
+        tituloPrograma->setObjectName(QString::fromUtf8("tituloPrograma"));
+        tituloPrograma->setMinimumSize(QSize(0, 30));
+        tituloPrograma->setMaximumSize(QSize(16777215, 30));
         QFont font;
-        font.setFamily(QString::fromUtf8("MS PGothic"));
-        font.setPointSize(32);
-        Titulo->setFont(font);
+        font.setFamily(QString::fromUtf8("Arial"));
+        font.setPointSize(18);
+        font.setBold(true);
+        font.setWeight(75);
+        tituloPrograma->setFont(font);
+        tituloPrograma->setFrameShape(QFrame::NoFrame);
+        tituloPrograma->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(Titulo, 1, 2, 1, 1);
+        verticalLayout_4->addWidget(tituloPrograma);
 
-        buscarArchivo = new QPushButton(gridLayoutWidget);
-        buscarArchivo->setObjectName(QString::fromUtf8("buscarArchivo"));
+        seleccionarArchivo = new QPushButton(centralwidget);
+        seleccionarArchivo->setObjectName(QString::fromUtf8("seleccionarArchivo"));
+        seleccionarArchivo->setMinimumSize(QSize(0, 25));
+        seleccionarArchivo->setMaximumSize(QSize(16777215, 25));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Arial"));
+        font1.setPointSize(11);
+        seleccionarArchivo->setFont(font1);
 
-        gridLayout->addWidget(buscarArchivo, 2, 2, 1, 1);
+        verticalLayout_4->addWidget(seleccionarArchivo);
+
+        pathArchivo = new QLabel(centralwidget);
+        pathArchivo->setObjectName(QString::fromUtf8("pathArchivo"));
+        pathArchivo->setMinimumSize(QSize(0, 20));
+        pathArchivo->setMaximumSize(QSize(16777215, 20));
+        pathArchivo->setFont(font1);
+
+        verticalLayout_4->addWidget(pathArchivo);
+
+        datosPaquete = new QScrollArea(centralwidget);
+        datosPaquete->setObjectName(QString::fromUtf8("datosPaquete"));
+        datosPaquete->setFont(font1);
+        datosPaquete->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, -402, 403, 1516));
+        verticalLayout_3 = new QVBoxLayout(scrollAreaWidgetContents_2);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        macOrigen = new QVBoxLayout();
+        macOrigen->setObjectName(QString::fromUtf8("macOrigen"));
+        macOrigenLbl = new QLabel(scrollAreaWidgetContents_2);
+        macOrigenLbl->setObjectName(QString::fromUtf8("macOrigenLbl"));
+
+        macOrigen->addWidget(macOrigenLbl);
+
+        macOrigenTxt = new QLineEdit(scrollAreaWidgetContents_2);
+        macOrigenTxt->setObjectName(QString::fromUtf8("macOrigenTxt"));
+
+        macOrigen->addWidget(macOrigenTxt);
+
+
+        verticalLayout_3->addLayout(macOrigen);
+
+        macDestino = new QVBoxLayout();
+        macDestino->setObjectName(QString::fromUtf8("macDestino"));
+        macDestinoLbl = new QLabel(scrollAreaWidgetContents_2);
+        macDestinoLbl->setObjectName(QString::fromUtf8("macDestinoLbl"));
+
+        macDestino->addWidget(macDestinoLbl);
+
+        macDestinoTxt = new QLineEdit(scrollAreaWidgetContents_2);
+        macDestinoTxt->setObjectName(QString::fromUtf8("macDestinoTxt"));
+
+        macDestino->addWidget(macDestinoTxt);
+
+
+        verticalLayout_3->addLayout(macDestino);
+
+        ethernetType = new QVBoxLayout();
+        ethernetType->setObjectName(QString::fromUtf8("ethernetType"));
+        etherTypeLbl = new QLabel(scrollAreaWidgetContents_2);
+        etherTypeLbl->setObjectName(QString::fromUtf8("etherTypeLbl"));
+
+        ethernetType->addWidget(etherTypeLbl);
+
+        etherTypeTxt = new QLineEdit(scrollAreaWidgetContents_2);
+        etherTypeTxt->setObjectName(QString::fromUtf8("etherTypeTxt"));
+
+        ethernetType->addWidget(etherTypeTxt);
+
+
+        verticalLayout_3->addLayout(ethernetType);
+
+        datosEthernet = new QGroupBox(scrollAreaWidgetContents_2);
+        datosEthernet->setObjectName(QString::fromUtf8("datosEthernet"));
+        datosEthernet->setEnabled(true);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Maximum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(datosEthernet->sizePolicy().hasHeightForWidth());
+        datosEthernet->setSizePolicy(sizePolicy1);
+        verticalLayout = new QVBoxLayout(datosEthernet);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        textEdit = new QTextEdit(datosEthernet);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(textEdit->sizePolicy().hasHeightForWidth());
+        textEdit->setSizePolicy(sizePolicy2);
+        textEdit->setMinimumSize(QSize(0, 180));
+        textEdit->setMaximumSize(QSize(16777215, 180));
+        textEdit->setMouseTracking(true);
+        textEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+        verticalLayout->addWidget(textEdit);
+
+
+        verticalLayout_3->addWidget(datosEthernet);
+
+        datosIP = new QGroupBox(scrollAreaWidgetContents_2);
+        datosIP->setObjectName(QString::fromUtf8("datosIP"));
+        verticalLayout_2 = new QVBoxLayout(datosIP);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        versionIP = new QVBoxLayout();
+        versionIP->setObjectName(QString::fromUtf8("versionIP"));
+        versionIPLbl = new QLabel(datosIP);
+        versionIPLbl->setObjectName(QString::fromUtf8("versionIPLbl"));
+
+        versionIP->addWidget(versionIPLbl);
+
+        versionIPTxt = new QLineEdit(datosIP);
+        versionIPTxt->setObjectName(QString::fromUtf8("versionIPTxt"));
+
+        versionIP->addWidget(versionIPTxt);
+
+
+        verticalLayout_2->addLayout(versionIP);
+
+        cabecera = new QVBoxLayout();
+        cabecera->setObjectName(QString::fromUtf8("cabecera"));
+        cabeceraLbl = new QLabel(datosIP);
+        cabeceraLbl->setObjectName(QString::fromUtf8("cabeceraLbl"));
+
+        cabecera->addWidget(cabeceraLbl);
+
+        cabeceraTxt = new QLineEdit(datosIP);
+        cabeceraTxt->setObjectName(QString::fromUtf8("cabeceraTxt"));
+
+        cabecera->addWidget(cabeceraTxt);
+
+
+        verticalLayout_2->addLayout(cabecera);
+
+        tipoServicio = new QVBoxLayout();
+        tipoServicio->setObjectName(QString::fromUtf8("tipoServicio"));
+        tipoServicioLbl = new QLabel(datosIP);
+        tipoServicioLbl->setObjectName(QString::fromUtf8("tipoServicioLbl"));
+
+        tipoServicio->addWidget(tipoServicioLbl);
+
+        tipoServicioTxt = new QTextEdit(datosIP);
+        tipoServicioTxt->setObjectName(QString::fromUtf8("tipoServicioTxt"));
+        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(tipoServicioTxt->sizePolicy().hasHeightForWidth());
+        tipoServicioTxt->setSizePolicy(sizePolicy3);
+        tipoServicioTxt->setMinimumSize(QSize(0, 80));
+        tipoServicioTxt->setMaximumSize(QSize(16777215, 80));
+        tipoServicioTxt->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+        tipoServicio->addWidget(tipoServicioTxt);
+
+
+        verticalLayout_2->addLayout(tipoServicio);
+
+        longitud = new QVBoxLayout();
+        longitud->setObjectName(QString::fromUtf8("longitud"));
+        longitudLbl = new QLabel(datosIP);
+        longitudLbl->setObjectName(QString::fromUtf8("longitudLbl"));
+
+        longitud->addWidget(longitudLbl);
+
+        longitudTxt = new QLineEdit(datosIP);
+        longitudTxt->setObjectName(QString::fromUtf8("longitudTxt"));
+
+        longitud->addWidget(longitudTxt);
+
+
+        verticalLayout_2->addLayout(longitud);
+
+        identificador = new QVBoxLayout();
+        identificador->setObjectName(QString::fromUtf8("identificador"));
+        identificadorLbl = new QLabel(datosIP);
+        identificadorLbl->setObjectName(QString::fromUtf8("identificadorLbl"));
+
+        identificador->addWidget(identificadorLbl);
+
+        identificadorTxt = new QLineEdit(datosIP);
+        identificadorTxt->setObjectName(QString::fromUtf8("identificadorTxt"));
+
+        identificador->addWidget(identificadorTxt);
+
+
+        verticalLayout_2->addLayout(identificador);
+
+        flags = new QVBoxLayout();
+        flags->setObjectName(QString::fromUtf8("flags"));
+        flagsLbl = new QLabel(datosIP);
+        flagsLbl->setObjectName(QString::fromUtf8("flagsLbl"));
+
+        flags->addWidget(flagsLbl);
+
+        flagsTxt = new QTextEdit(datosIP);
+        flagsTxt->setObjectName(QString::fromUtf8("flagsTxt"));
+        sizePolicy2.setHeightForWidth(flagsTxt->sizePolicy().hasHeightForWidth());
+        flagsTxt->setSizePolicy(sizePolicy2);
+        flagsTxt->setMinimumSize(QSize(0, 70));
+        flagsTxt->setMaximumSize(QSize(16777215, 70));
+        flagsTxt->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+        flags->addWidget(flagsTxt);
+
+
+        verticalLayout_2->addLayout(flags);
+
+        fragmento = new QVBoxLayout();
+        fragmento->setObjectName(QString::fromUtf8("fragmento"));
+        fragmentoLbl = new QLabel(datosIP);
+        fragmentoLbl->setObjectName(QString::fromUtf8("fragmentoLbl"));
+
+        fragmento->addWidget(fragmentoLbl);
+
+        fragmentoTxt = new QLineEdit(datosIP);
+        fragmentoTxt->setObjectName(QString::fromUtf8("fragmentoTxt"));
+
+        fragmento->addWidget(fragmentoTxt);
+
+
+        verticalLayout_2->addLayout(fragmento);
+
+        ttl = new QVBoxLayout();
+        ttl->setObjectName(QString::fromUtf8("ttl"));
+        ttlLbl = new QLabel(datosIP);
+        ttlLbl->setObjectName(QString::fromUtf8("ttlLbl"));
+
+        ttl->addWidget(ttlLbl);
+
+        ttlTxt = new QLineEdit(datosIP);
+        ttlTxt->setObjectName(QString::fromUtf8("ttlTxt"));
+
+        ttl->addWidget(ttlTxt);
+
+
+        verticalLayout_2->addLayout(ttl);
+
+        protocolo = new QVBoxLayout();
+        protocolo->setObjectName(QString::fromUtf8("protocolo"));
+        protocoloLbl = new QLabel(datosIP);
+        protocoloLbl->setObjectName(QString::fromUtf8("protocoloLbl"));
+
+        protocolo->addWidget(protocoloLbl);
+
+        protocoloTxt = new QLineEdit(datosIP);
+        protocoloTxt->setObjectName(QString::fromUtf8("protocoloTxt"));
+
+        protocolo->addWidget(protocoloTxt);
+
+
+        verticalLayout_2->addLayout(protocolo);
+
+        checksum = new QVBoxLayout();
+        checksum->setObjectName(QString::fromUtf8("checksum"));
+        checksumLbl = new QLabel(datosIP);
+        checksumLbl->setObjectName(QString::fromUtf8("checksumLbl"));
+
+        checksum->addWidget(checksumLbl);
+
+        checksumTxt = new QLineEdit(datosIP);
+        checksumTxt->setObjectName(QString::fromUtf8("checksumTxt"));
+
+        checksum->addWidget(checksumTxt);
+
+
+        verticalLayout_2->addLayout(checksum);
+
+        ipOrigen = new QVBoxLayout();
+        ipOrigen->setObjectName(QString::fromUtf8("ipOrigen"));
+        ipOrigenLbl = new QLabel(datosIP);
+        ipOrigenLbl->setObjectName(QString::fromUtf8("ipOrigenLbl"));
+
+        ipOrigen->addWidget(ipOrigenLbl);
+
+        ipOrigenTxt = new QLineEdit(datosIP);
+        ipOrigenTxt->setObjectName(QString::fromUtf8("ipOrigenTxt"));
+
+        ipOrigen->addWidget(ipOrigenTxt);
+
+
+        verticalLayout_2->addLayout(ipOrigen);
+
+        ipDestino = new QVBoxLayout();
+        ipDestino->setObjectName(QString::fromUtf8("ipDestino"));
+        ipDestinoLbl = new QLabel(datosIP);
+        ipDestinoLbl->setObjectName(QString::fromUtf8("ipDestinoLbl"));
+
+        ipDestino->addWidget(ipDestinoLbl);
+
+        ipDestinoTxt = new QLineEdit(datosIP);
+        ipDestinoTxt->setObjectName(QString::fromUtf8("ipDestinoTxt"));
+
+        ipDestino->addWidget(ipDestinoTxt);
+
+
+        verticalLayout_2->addLayout(ipDestino);
+
+
+        verticalLayout_3->addWidget(datosIP);
+
+        datosICMPv4 = new QGroupBox(scrollAreaWidgetContents_2);
+        datosICMPv4->setObjectName(QString::fromUtf8("datosICMPv4"));
+        verticalLayout_5 = new QVBoxLayout(datosICMPv4);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        tipoICMPv4 = new QVBoxLayout();
+        tipoICMPv4->setObjectName(QString::fromUtf8("tipoICMPv4"));
+        tipoICMPv4Lbl = new QLabel(datosICMPv4);
+        tipoICMPv4Lbl->setObjectName(QString::fromUtf8("tipoICMPv4Lbl"));
+
+        tipoICMPv4->addWidget(tipoICMPv4Lbl);
+
+        tipoICMPv4Txt = new QLineEdit(datosICMPv4);
+        tipoICMPv4Txt->setObjectName(QString::fromUtf8("tipoICMPv4Txt"));
+
+        tipoICMPv4->addWidget(tipoICMPv4Txt);
+
+
+        verticalLayout_5->addLayout(tipoICMPv4);
+
+        codeICMPv4 = new QVBoxLayout();
+        codeICMPv4->setObjectName(QString::fromUtf8("codeICMPv4"));
+        codeICMPv4Lbl = new QLabel(datosICMPv4);
+        codeICMPv4Lbl->setObjectName(QString::fromUtf8("codeICMPv4Lbl"));
+
+        codeICMPv4->addWidget(codeICMPv4Lbl);
+
+        codeICMPv4Txt = new QLineEdit(datosICMPv4);
+        codeICMPv4Txt->setObjectName(QString::fromUtf8("codeICMPv4Txt"));
+
+        codeICMPv4->addWidget(codeICMPv4Txt);
+
+
+        verticalLayout_5->addLayout(codeICMPv4);
+
+        checksumICMPv4 = new QVBoxLayout();
+        checksumICMPv4->setObjectName(QString::fromUtf8("checksumICMPv4"));
+        checksumICMPv4Lbl = new QLabel(datosICMPv4);
+        checksumICMPv4Lbl->setObjectName(QString::fromUtf8("checksumICMPv4Lbl"));
+
+        checksumICMPv4->addWidget(checksumICMPv4Lbl);
+
+        checksumICMPv4Txt = new QLineEdit(datosICMPv4);
+        checksumICMPv4Txt->setObjectName(QString::fromUtf8("checksumICMPv4Txt"));
+
+        checksumICMPv4->addWidget(checksumICMPv4Txt);
+
+
+        verticalLayout_5->addLayout(checksumICMPv4);
+
+        datosICMP = new QVBoxLayout();
+        datosICMP->setObjectName(QString::fromUtf8("datosICMP"));
+        datosICMPv4Lbl = new QLabel(datosICMPv4);
+        datosICMPv4Lbl->setObjectName(QString::fromUtf8("datosICMPv4Lbl"));
+
+        datosICMP->addWidget(datosICMPv4Lbl);
+
+        datosICMPv4Txt = new QTextEdit(datosICMPv4);
+        datosICMPv4Txt->setObjectName(QString::fromUtf8("datosICMPv4Txt"));
+        datosICMPv4Txt->setMinimumSize(QSize(0, 100));
+        datosICMPv4Txt->setMaximumSize(QSize(16777215, 100));
+
+        datosICMP->addWidget(datosICMPv4Txt);
+
+
+        verticalLayout_5->addLayout(datosICMP);
+
+
+        verticalLayout_3->addWidget(datosICMPv4);
+
+        datosPaquete->setWidget(scrollAreaWidgetContents_2);
+
+        verticalLayout_4->addWidget(datosPaquete);
 
         MainWindow->setCentralWidget(centralwidget);
 
@@ -350,28 +513,47 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        seleccionArchivo->setText(QString());
-        Datos->setTitle(QApplication::translate("MainWindow", "Datos:", nullptr));
-        label->setText(QApplication::translate("MainWindow", "Direccion MAC Origen:", nullptr));
-        labeldestino->setText(QApplication::translate("MainWindow", "Direccion MAC Destino: ", nullptr));
-        EthType->setText(QApplication::translate("MainWindow", "Ethernet Type Code:", nullptr));
-        Ipv4->setTitle(QApplication::translate("MainWindow", "IPv4", nullptr));
-        labelPosicionFrag->setText(QApplication::translate("MainWindow", "Posici\303\263n de Fragmento:", nullptr));
-        labelProtocolo->setText(QApplication::translate("MainWindow", "Protocolo:", nullptr));
-        labelID->setText(QApplication::translate("MainWindow", "Identificador:", nullptr));
-        labelihl->setText(QApplication::translate("MainWindow", "Tama\303\261o de cabecera (IHL):", nullptr));
-        labelChecksum->setText(QApplication::translate("MainWindow", "Checksum:", nullptr));
-        labelDatosExtra->setText(QApplication::translate("MainWindow", "Datos Extra:", nullptr));
-        labelIPD->setText(QApplication::translate("MainWindow", "IP Destino:", nullptr));
-        labellonTotal->setText(QApplication::translate("MainWindow", "Longitud Total:", nullptr));
-        labelIPO->setText(QApplication::translate("MainWindow", "IP Origen:", nullptr));
-        labeltipo_Servicio->setText(QApplication::translate("MainWindow", "Tipo de servicio:", nullptr));
-        labelversion_ipv4->setText(QApplication::translate("MainWindow", "Version:", nullptr));
-        labelFlags->setText(QApplication::translate("MainWindow", "Flags:", nullptr));
-        labelTTL->setText(QApplication::translate("MainWindow", "Tiempo de Vida(TTL):", nullptr));
-        Titulo->setText(QApplication::translate("MainWindow", "SNIFFER EQUIPO 1(D03)", nullptr));
-        buscarArchivo->setText(QApplication::translate("MainWindow", "Seleccionar Archivo", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Sniffer", nullptr));
+        tituloPrograma->setText(QApplication::translate("MainWindow", "Sniffer Equipo 1 (D03)", nullptr));
+        seleccionarArchivo->setText(QApplication::translate("MainWindow", "Seleccionar archivo...", nullptr));
+        pathArchivo->setText(QApplication::translate("MainWindow", "Ruta archivo...", nullptr));
+        macOrigenLbl->setText(QApplication::translate("MainWindow", "Direccion MAC Origen:", nullptr));
+        macDestinoLbl->setText(QApplication::translate("MainWindow", "Direccion MAC Destino:", nullptr));
+        etherTypeLbl->setText(QApplication::translate("MainWindow", "Ethernet Type Code:", nullptr));
+        datosEthernet->setTitle(QApplication::translate("MainWindow", "Datos:", nullptr));
+        textEdit->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        datosIP->setTitle(QApplication::translate("MainWindow", "IP:", nullptr));
+        versionIPLbl->setText(QApplication::translate("MainWindow", "Version:", nullptr));
+        cabeceraLbl->setText(QApplication::translate("MainWindow", "Tama\303\261o de cabecera:", nullptr));
+        tipoServicioLbl->setText(QApplication::translate("MainWindow", "Tipo de servicio:", nullptr));
+        tipoServicioTxt->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        longitudLbl->setText(QApplication::translate("MainWindow", "Longitud total:", nullptr));
+        identificadorLbl->setText(QApplication::translate("MainWindow", "Identificador:", nullptr));
+        flagsLbl->setText(QApplication::translate("MainWindow", "Flags:", nullptr));
+        flagsTxt->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        fragmentoLbl->setText(QApplication::translate("MainWindow", "Posicion del fragmento: ", nullptr));
+        ttlLbl->setText(QApplication::translate("MainWindow", "Tiempo de vida (TTL)", nullptr));
+        protocoloLbl->setText(QApplication::translate("MainWindow", "Protocolo:", nullptr));
+        checksumLbl->setText(QApplication::translate("MainWindow", "Checksum:", nullptr));
+        ipOrigenLbl->setText(QApplication::translate("MainWindow", "IP origen:", nullptr));
+        ipDestinoLbl->setText(QApplication::translate("MainWindow", "IP destino:", nullptr));
+        datosICMPv4->setTitle(QApplication::translate("MainWindow", "ICMP", nullptr));
+        tipoICMPv4Lbl->setText(QApplication::translate("MainWindow", "Tipo:", nullptr));
+        codeICMPv4Lbl->setText(QApplication::translate("MainWindow", "Codigo:", nullptr));
+        checksumICMPv4Lbl->setText(QApplication::translate("MainWindow", "Checksum:", nullptr));
+        datosICMPv4Lbl->setText(QApplication::translate("MainWindow", "Datos ICMP:", nullptr));
     } // retranslateUi
 
 };
