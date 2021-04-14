@@ -91,8 +91,8 @@ void MainWindow::showIP(string dump){
 
 void MainWindow::showICMPv4(string dump){
     QString binary = hexToBinaryQString(dump);
-    ui->tipoICMPv4Txt->setText(binarioToDecimal(binary.mid(0, 8)));
-    ui->codeICMPv4Txt->setText(binarioToDecimal(binary.mid(8, 8)));
+    ui->tipoICMPv4Txt->setText(tipoICMP(binary.mid(0, 8)));
+    ui->codeICMPv4Txt->setText(codigoICMP(binary.mid(8, 8)));
     ui->checksumICMPv4Txt->setText(binarioToHex(binary.mid(16, 16)));
     ui->datosICMPv4Txt->setText(setDatos(QString::fromStdString(dump.substr(8)).toUpper()));
     ui->datosICMPv4->show();
