@@ -2,7 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <ui_mainwindow.h>
 #include <string>
+#include <reader.h>
+#include <splitter.h>
+#include <QString>
+#include <QFileDialog>
+#include <QDebug>
 
 using namespace std;
 
@@ -26,5 +32,8 @@ private:
     void showEthernet(string);
     void showIP(string);
     void showICMPv4(string);
+    Reader reader;
+    Conversor conversor;
+    Splitter splitter;
 };
 #endif // MAINWINDOW_H
