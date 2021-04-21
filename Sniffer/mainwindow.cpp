@@ -49,10 +49,6 @@ void MainWindow::showEthernet(string dump){
     ui->datosPaquete->show();
     ui->macDestinoTxt->setText(splitter.macDestino(dump));
     ui->macOrigenTxt->setText(splitter.macOrigen(dump));
-    ui->macDestinoLbl->show();
-    ui->macDestinoTxt->show();
-    ui->macOrigenLbl->show();
-    ui->macOrigenTxt->show();
     ui->etherTypeTxt->setText(tipo);
     if(tipo == "0800 IPv4"){
         ui->datosEthernet->hide();
@@ -60,10 +56,6 @@ void MainWindow::showEthernet(string dump){
         this->resize(440, 800);
     }
     else if(tipo == "0806 ARP"){
-        ui->macDestinoLbl->hide();
-        ui->macDestinoTxt->hide();
-        ui->macOrigenLbl->hide();
-        ui->macOrigenTxt->hide();
         ui->datosEthernet->hide();
         showARP(dump.substr(28));
         this->resize(440, 800);
