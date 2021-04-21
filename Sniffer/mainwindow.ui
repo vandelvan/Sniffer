@@ -134,9 +134,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-1829</y>
-         <width>406</width>
-         <height>2370</height>
+         <y>-876</y>
+         <width>403</width>
+         <height>2331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -198,7 +198,7 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QTextEdit" name="textEdit">
+            <widget class="QTextEdit" name="datosEthernetTxt">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -313,6 +313,30 @@ p, li { white-space: pre-wrap; }
             </layout>
            </item>
            <item>
+            <layout class="QVBoxLayout" name="tipoFlujo">
+             <item>
+              <widget class="QLabel" name="tipoFlujoLbl">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Tipo de Flujo:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="tipoFlujoTxt">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="readOnly">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
             <layout class="QVBoxLayout" name="longitud">
              <item>
               <widget class="QLabel" name="longitudLbl">
@@ -402,7 +426,7 @@ p, li { white-space: pre-wrap; }
              <item>
               <widget class="QLabel" name="ttlLbl">
                <property name="text">
-                <string>Tiempo de vida (TTL)</string>
+                <string>Tiempo de vida (TTL):</string>
                </property>
               </widget>
              </item>
@@ -440,30 +464,44 @@ p, li { white-space: pre-wrap; }
             </layout>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="ipOrigen">
+            <layout class="QVBoxLayout" name="dirOrigen">
              <item>
-              <widget class="QLabel" name="ipOrigenLbl">
+              <widget class="QLabel" name="dirOrigenLbl">
                <property name="text">
-                <string>IP origen:</string>
+                <string>Dirección origen:</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="ipOrigenTxt"/>
+              <widget class="QLineEdit" name="dirOrigenTxt"/>
              </item>
             </layout>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="ipDestino">
+            <layout class="QVBoxLayout" name="dirDestino">
              <item>
-              <widget class="QLabel" name="ipDestinoLbl">
+              <widget class="QLabel" name="dirDestinoLbl">
                <property name="text">
-                <string>IP destino:</string>
+                <string>Dirección destino:</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="ipDestinoTxt"/>
+              <widget class="QLineEdit" name="dirDestinoTxt"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="datosExt">
+             <item>
+              <widget class="QLabel" name="datosExtLbl">
+               <property name="text">
+                <string>Datos del paquete:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="datosExtTxt"/>
              </item>
             </layout>
            </item>

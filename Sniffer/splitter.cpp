@@ -27,6 +27,33 @@ QString Splitter::macOrigen(string dump){
     return macD;
 }
 
+QString Splitter::mac128(QString binary){
+    QString mac="";
+    mac=relleno(conversor.binarioToHex(binary.mid(0,16)))+":";
+    mac+=relleno(conversor.binarioToHex(binary.mid(16,16)))+":";
+    mac+=relleno(conversor.binarioToHex(binary.mid(32,16)))+":";
+    mac+=relleno(conversor.binarioToHex(binary.mid(48,16)))+":";
+    mac+=relleno(conversor.binarioToHex(binary.mid(64,16)))+":";
+    mac+=relleno(conversor.binarioToHex(binary.mid(80,16)))+":";
+    mac+=relleno(conversor.binarioToHex(binary.mid(96,16)))+":";
+    mac+=relleno(conversor.binarioToHex(binary.mid(112,16)));
+    return mac;
+}
+
+QString Splitter::relleno(QString cad)
+{
+    QString res="";
+    int ln=cad.length();
+    int i=4-ln;
+    while(i>0)
+    {
+        res+="0";
+        i--;
+    }
+    return res+cad;
+
+}
+
 QString Splitter::tipoCodigo(string dump){
     QString tipo="";
     for(int i=24;i<28;i++)
@@ -181,8 +208,8 @@ QString Splitter::setDatos(QString aux){
     QString salida;
     for(int i=0; i<aux.length(); i++){
         salida+=aux[i];
-        if(i%2==1){
-            salida+=":";
+        if((i+1)%4==0){
+            salida+=" ";
         }
     }
     salida[salida.length()-1]=' ';

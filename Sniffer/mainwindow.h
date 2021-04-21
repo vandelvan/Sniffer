@@ -30,9 +30,11 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void showEthernet(string);
-    void showIP(string);
+    void showIPv4(string);
     void showICMPv4(string);
     void showARP(string);
+    void showIPv6(string);
+    void resetIP();
     Reader reader;
     Conversor conversor;
     Splitter splitter;

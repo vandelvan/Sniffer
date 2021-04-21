@@ -9,6 +9,8 @@ class Splitter{
 public:
     QString macDestino(std::string dump);
     QString macOrigen(std::string dump);
+    QString mac128(QString binary);
+    QString relleno(QString cad);
     QString tipoCodigo(std::string dump);
     QString versionIP(QString aux);
     QString tamanoCabecera(QString aux);

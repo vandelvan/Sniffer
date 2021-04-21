@@ -45,7 +45,7 @@ public:
     QLineEdit *etherTypeTxt;
     QGroupBox *datosEthernet;
     QVBoxLayout *verticalLayout;
-    QTextEdit *textEdit;
+    QTextEdit *datosEthernetTxt;
     QGroupBox *datosIP;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *versionIP;
@@ -57,6 +57,9 @@ public:
     QVBoxLayout *tipoServicio;
     QLabel *tipoServicioLbl;
     QTextEdit *tipoServicioTxt;
+    QVBoxLayout *tipoFlujo;
+    QLabel *tipoFlujoLbl;
+    QLineEdit *tipoFlujoTxt;
     QVBoxLayout *longitud;
     QLabel *longitudLbl;
     QLineEdit *longitudTxt;
@@ -78,12 +81,15 @@ public:
     QVBoxLayout *checksum;
     QLabel *checksumLbl;
     QLineEdit *checksumTxt;
-    QVBoxLayout *ipOrigen;
-    QLabel *ipOrigenLbl;
-    QLineEdit *ipOrigenTxt;
-    QVBoxLayout *ipDestino;
-    QLabel *ipDestinoLbl;
-    QLineEdit *ipDestinoTxt;
+    QVBoxLayout *dirOrigen;
+    QLabel *dirOrigenLbl;
+    QLineEdit *dirOrigenTxt;
+    QVBoxLayout *dirDestino;
+    QLabel *dirDestinoLbl;
+    QLineEdit *dirDestinoTxt;
+    QVBoxLayout *datosExt;
+    QLabel *datosExtLbl;
+    QTextEdit *datosExtTxt;
     QGroupBox *datosICMPv4;
     QVBoxLayout *verticalLayout_5;
     QVBoxLayout *tipoICMPv4;
@@ -185,7 +191,7 @@ public:
         datosPaquete->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, -1829, 406, 2370));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, -876, 403, 2331));
         verticalLayout_3 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         macOrigen = new QVBoxLayout();
@@ -243,19 +249,19 @@ public:
         datosEthernet->setSizePolicy(sizePolicy1);
         verticalLayout = new QVBoxLayout(datosEthernet);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        textEdit = new QTextEdit(datosEthernet);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        datosEthernetTxt = new QTextEdit(datosEthernet);
+        datosEthernetTxt->setObjectName(QString::fromUtf8("datosEthernetTxt"));
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(textEdit->sizePolicy().hasHeightForWidth());
-        textEdit->setSizePolicy(sizePolicy2);
-        textEdit->setMinimumSize(QSize(0, 180));
-        textEdit->setMaximumSize(QSize(16777215, 180));
-        textEdit->setMouseTracking(true);
-        textEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        sizePolicy2.setHeightForWidth(datosEthernetTxt->sizePolicy().hasHeightForWidth());
+        datosEthernetTxt->setSizePolicy(sizePolicy2);
+        datosEthernetTxt->setMinimumSize(QSize(0, 180));
+        datosEthernetTxt->setMaximumSize(QSize(16777215, 180));
+        datosEthernetTxt->setMouseTracking(true);
+        datosEthernetTxt->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-        verticalLayout->addWidget(textEdit);
+        verticalLayout->addWidget(datosEthernetTxt);
 
 
         verticalLayout_3->addWidget(datosEthernet);
@@ -316,6 +322,24 @@ public:
 
 
         verticalLayout_2->addLayout(tipoServicio);
+
+        tipoFlujo = new QVBoxLayout();
+        tipoFlujo->setObjectName(QString::fromUtf8("tipoFlujo"));
+        tipoFlujoLbl = new QLabel(datosIP);
+        tipoFlujoLbl->setObjectName(QString::fromUtf8("tipoFlujoLbl"));
+        tipoFlujoLbl->setEnabled(true);
+
+        tipoFlujo->addWidget(tipoFlujoLbl);
+
+        tipoFlujoTxt = new QLineEdit(datosIP);
+        tipoFlujoTxt->setObjectName(QString::fromUtf8("tipoFlujoTxt"));
+        tipoFlujoTxt->setEnabled(true);
+        tipoFlujoTxt->setReadOnly(false);
+
+        tipoFlujo->addWidget(tipoFlujoTxt);
+
+
+        verticalLayout_2->addLayout(tipoFlujo);
 
         longitud = new QVBoxLayout();
         longitud->setObjectName(QString::fromUtf8("longitud"));
@@ -427,35 +451,50 @@ public:
 
         verticalLayout_2->addLayout(checksum);
 
-        ipOrigen = new QVBoxLayout();
-        ipOrigen->setObjectName(QString::fromUtf8("ipOrigen"));
-        ipOrigenLbl = new QLabel(datosIP);
-        ipOrigenLbl->setObjectName(QString::fromUtf8("ipOrigenLbl"));
+        dirOrigen = new QVBoxLayout();
+        dirOrigen->setObjectName(QString::fromUtf8("dirOrigen"));
+        dirOrigenLbl = new QLabel(datosIP);
+        dirOrigenLbl->setObjectName(QString::fromUtf8("dirOrigenLbl"));
 
-        ipOrigen->addWidget(ipOrigenLbl);
+        dirOrigen->addWidget(dirOrigenLbl);
 
-        ipOrigenTxt = new QLineEdit(datosIP);
-        ipOrigenTxt->setObjectName(QString::fromUtf8("ipOrigenTxt"));
+        dirOrigenTxt = new QLineEdit(datosIP);
+        dirOrigenTxt->setObjectName(QString::fromUtf8("dirOrigenTxt"));
 
-        ipOrigen->addWidget(ipOrigenTxt);
-
-
-        verticalLayout_2->addLayout(ipOrigen);
-
-        ipDestino = new QVBoxLayout();
-        ipDestino->setObjectName(QString::fromUtf8("ipDestino"));
-        ipDestinoLbl = new QLabel(datosIP);
-        ipDestinoLbl->setObjectName(QString::fromUtf8("ipDestinoLbl"));
-
-        ipDestino->addWidget(ipDestinoLbl);
-
-        ipDestinoTxt = new QLineEdit(datosIP);
-        ipDestinoTxt->setObjectName(QString::fromUtf8("ipDestinoTxt"));
-
-        ipDestino->addWidget(ipDestinoTxt);
+        dirOrigen->addWidget(dirOrigenTxt);
 
 
-        verticalLayout_2->addLayout(ipDestino);
+        verticalLayout_2->addLayout(dirOrigen);
+
+        dirDestino = new QVBoxLayout();
+        dirDestino->setObjectName(QString::fromUtf8("dirDestino"));
+        dirDestinoLbl = new QLabel(datosIP);
+        dirDestinoLbl->setObjectName(QString::fromUtf8("dirDestinoLbl"));
+
+        dirDestino->addWidget(dirDestinoLbl);
+
+        dirDestinoTxt = new QLineEdit(datosIP);
+        dirDestinoTxt->setObjectName(QString::fromUtf8("dirDestinoTxt"));
+
+        dirDestino->addWidget(dirDestinoTxt);
+
+
+        verticalLayout_2->addLayout(dirDestino);
+
+        datosExt = new QVBoxLayout();
+        datosExt->setObjectName(QString::fromUtf8("datosExt"));
+        datosExtLbl = new QLabel(datosIP);
+        datosExtLbl->setObjectName(QString::fromUtf8("datosExtLbl"));
+
+        datosExt->addWidget(datosExtLbl);
+
+        datosExtTxt = new QTextEdit(datosIP);
+        datosExtTxt->setObjectName(QString::fromUtf8("datosExtTxt"));
+
+        datosExt->addWidget(datosExtTxt);
+
+
+        verticalLayout_2->addLayout(datosExt);
 
 
         verticalLayout_3->addWidget(datosIP);
@@ -674,7 +713,7 @@ public:
         macDestinoLbl->setText(QApplication::translate("MainWindow", "Direccion MAC Destino:", nullptr));
         etherTypeLbl->setText(QApplication::translate("MainWindow", "Ethernet Type Code:", nullptr));
         datosEthernet->setTitle(QApplication::translate("MainWindow", "Datos:", nullptr));
-        textEdit->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        datosEthernetTxt->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
@@ -688,6 +727,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        tipoFlujoLbl->setText(QApplication::translate("MainWindow", "Tipo de Flujo:", nullptr));
         longitudLbl->setText(QApplication::translate("MainWindow", "Longitud total:", nullptr));
         identificadorLbl->setText(QApplication::translate("MainWindow", "Identificador:", nullptr));
         flagsLbl->setText(QApplication::translate("MainWindow", "Flags:", nullptr));
@@ -697,11 +737,12 @@ public:
 "</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         fragmentoLbl->setText(QApplication::translate("MainWindow", "Posicion del fragmento: ", nullptr));
-        ttlLbl->setText(QApplication::translate("MainWindow", "Tiempo de vida (TTL)", nullptr));
+        ttlLbl->setText(QApplication::translate("MainWindow", "Tiempo de vida (TTL):", nullptr));
         protocoloLbl->setText(QApplication::translate("MainWindow", "Protocolo:", nullptr));
         checksumLbl->setText(QApplication::translate("MainWindow", "Checksum:", nullptr));
-        ipOrigenLbl->setText(QApplication::translate("MainWindow", "IP origen:", nullptr));
-        ipDestinoLbl->setText(QApplication::translate("MainWindow", "IP destino:", nullptr));
+        dirOrigenLbl->setText(QApplication::translate("MainWindow", "Direcci\303\263n origen:", nullptr));
+        dirDestinoLbl->setText(QApplication::translate("MainWindow", "Direcci\303\263n destino:", nullptr));
+        datosExtLbl->setText(QApplication::translate("MainWindow", "Datos del paquete:", nullptr));
         datosICMPv4->setTitle(QApplication::translate("MainWindow", "ICMP", nullptr));
         tipoICMPv4Lbl->setText(QApplication::translate("MainWindow", "Tipo:", nullptr));
         codeICMPv4Lbl->setText(QApplication::translate("MainWindow", "Codigo:", nullptr));
