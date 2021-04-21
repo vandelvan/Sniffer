@@ -134,9 +134,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-2097</y>
+         <y>-1829</y>
          <width>406</width>
-         <height>2216</height>
+         <height>2370</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -606,6 +606,30 @@ p, li { white-space: pre-wrap; }
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
                <widget class="QLineEdit" name="protocoloARPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="lngMAC">
+             <property name="title">
+              <string>Longitud MAC</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <item>
+               <widget class="QLineEdit" name="lngMACtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="lngIP">
+             <property name="title">
+              <string>Longitud IP</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <item>
+               <widget class="QLineEdit" name="lngIPtxt"/>
               </item>
              </layout>
             </widget>

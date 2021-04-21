@@ -112,8 +112,9 @@ void MainWindow::showARP(string dump){
     ui->protocoloARPtxt->setText(splitter.tipoCodigoARP(binary.mid(16, 16)));
     int lngHard = splitter.getLongitud(binary.mid(32, 8));
     int lngProt = splitter.getLongitud(binary.mid(40, 8));
-    QString op = splitter.opCodeARP(binary.mid(48,16));
-    ui->opCodeARPtxt->setText(op);
+    ui->lngMACtxt->setText(QString::number(lngHard/8)+" bytes");
+    ui->lngIPtxt->setText(QString::number(lngProt/8)+" bytes");
+    ui->opCodeARPtxt->setText(splitter.opCodeARP(binary.mid(48,16)));
     ui->MACARPorgtxt->setText(splitter.macDestino(dump.substr(16, (lngHard/4))));
     ui->IPARPorgtxt->setText(splitter.setIP(binary.mid(64+lngHard, lngProt)));
     ui->MACARPDestxt->setText(splitter.macDestino(dump.substr(16+(lngHard/4)+(lngProt/4), (lngHard/4))));
