@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->datosEthernet->hide();
     ui->datosIP->hide();
     ui->datosICMPv4->hide();
+    ui->datosARP->hide();
 }
 
 MainWindow::~MainWindow()
@@ -27,6 +28,7 @@ void MainWindow::on_seleccionarArchivo_clicked()
     ui->datosEthernet->hide();
     ui->datosIP->hide();
     ui->datosICMPv4->hide();
+    ui->datosARP->hide();
     QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir bin"), "~/", tr("*.bin"));
     QByteArray byteArray = reader.readFile(fileName);
     if(byteArray == nullptr)
@@ -52,7 +54,17 @@ void MainWindow::showEthernet(string dump){
         ui->datosEthernet->hide();
         showIP(dump.substr(28));
         this->resize(440, 800);
-    }else{
+    }
+    else if(tipo == "0806 ARP"){
+        ui->macDestinoLbl->hide();
+        ui->macDestinoTxt->hide();
+        ui->macOrigenLbl->hide();
+        ui->macOrigenTxt->hide();
+        ui->datosEthernet->hide();
+        showARP(dump.substr(28));
+        this->resize(440, 800);
+    }
+    else{
         this->resize(440, 460);
         ui->datosEthernet->show();
         ui->textEdit->setText(conversor.hexToBinaryQString(dump.substr(28)));
@@ -88,4 +100,19 @@ void MainWindow::showICMPv4(string dump){
     ui->checksumICMPv4Txt->setText(conversor.binarioToHex(binary.mid(16, 16)));
     ui->datosICMPv4Txt->setText(splitter.setDatos(QString::fromStdString(dump.substr(8)).toUpper()));
     ui->datosICMPv4->show();
+}
+
+void MainWindow::showARP(string dump){
+    QString binary = conversor.hexToBinaryQString(dump);
+    ui->hardARPtxt->setText(splitter.hardARP(binary.mid(0, 16)));
+    ui->protocoloARPtxt->setText(splitter.tipoCodigoARP(binary.mid(16, 16)));
+    int lngHard = splitter.getLongitud(binary.mid(32, 8));
+    int lngProt = splitter.getLongitud(binary.mid(40, 8));
+    QString op = splitter.opCodeARP(binary.mid(48,16));
+    ui->opCodeARPtxt->setText(op);
+    ui->MACARPorgtxt->setText(splitter.macDestino(dump.substr(16, (lngHard/4))));
+    ui->IPARPorgtxt->setText(splitter.setIP(binary.mid(64+lngHard, lngProt)));
+    ui->MACARPDestxt->setText(splitter.macDestino(dump.substr(16+(lngHard/4)+(lngProt/4), (lngHard/4))));
+    ui->IPARPDestxt->setText(splitter.setIP(binary.mid(64+lngHard+lngProt+lngHard, lngProt)));
+    ui->datosARP->show();
 }

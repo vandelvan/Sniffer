@@ -252,3 +252,190 @@ QString Splitter::codigoICMP(QString aux){
     }
     return salida;
 }
+
+QString Splitter::hardARP(QString aux){
+    QString salida = conversor.binarioToDecimal(aux);
+    if(salida == "0"){
+        salida+=" Reserved";
+    }else if(salida=="1"){
+        salida+=" Ethernet(10 Mb)";
+    }else if(salida=="2"){
+        salida+=" Experimental Ethernet (3Mb)";
+    }else if(salida=="3"){
+        salida+=" Amateur Radio AX.25";
+    }else if(salida=="4"){
+        salida+=" Proteon ProNET Token Ring";
+    }else if(salida=="5"){
+        salida+=" Chaos";
+    }else if(salida=="6"){
+        salida+=" IEEE 802 Networks";
+    }else if(salida=="7"){
+        salida+=" ARCNET";
+    }else if(salida=="8"){
+        salida+=" Hyperchannel";
+    }else if(salida=="9"){
+        salida+=" Lanstar";
+    }else if(salida=="10"){
+        salida+=" Autonet Short Address";
+    }else if(salida=="11"){
+        salida+=" LocalTalk";
+    }else if(salida=="12"){
+        salida+=" LocalNet (IBM PCNet or SYTEK LocalNET)";
+    }else if(salida=="13"){
+        salida+=" Ultra link";
+    }else if(salida=="14"){
+        salida+=" SMDS";
+    }else if(salida=="15"){
+        salida+=" Frame Relay";
+    }else if(salida=="16"){
+        salida+=" Asynchronous Transfer Mode (ATM)";
+    }else if(salida=="17"){
+        salida+=" HDLC";
+    }else if(salida=="18"){
+        salida+=" Fiber Channel";
+    }else if(salida=="19"){
+        salida+=" Asynchronous Transfer Mode (ATM)";
+    }else if(salida=="20"){
+        salida+=" Serial Line";
+    }else if(salida=="21"){
+        salida+=" Asynchronous Transmission Mode (ATM)";
+    }else if(salida=="22"){
+        salida+=" MIL-STD-188-220";
+    }else if(salida=="23"){
+        salida+=" Metricom";
+    }else if(salida=="24"){
+        salida+=" IEEE 1394.1995";
+    }else if(salida=="25"){
+        salida+=" MAPOS";
+    }else if(salida=="26"){
+        salida+=" Twinaxial";
+    }else if(salida=="27"){
+        salida+=" EUI-64";
+    }else if(salida=="28"){
+        salida+=" HIPARP";
+    }else if(salida=="29"){
+        salida+=" IP and ARP over ISO 7816-3";
+    }else if(salida=="30"){
+        salida+=" ARPSec";
+    }else if(salida=="31"){
+        salida+=" IPsec tunnel";
+    }else if(salida=="32"){
+        salida+=" InfiniBand (TM)";
+    }else if(salida=="33"){
+        salida+=" TIA-102 Project 25 Common Air Interface (CAI)";
+    }else if(salida=="34"){
+        salida+=" Wiegand Interface";
+    }else if(salida=="35"){
+        salida+=" Pure IP";
+    }else if(salida=="36"){
+        salida+=" HW_EXP1";
+    }else if(salida=="37"){
+        salida+=" HFI";
+    }else if(salida.toInt() >= 38 && salida.toInt() <= 255){
+        salida+=" Unassigned";
+    }else if(salida=="256"){
+        salida+=" HW_EXP2";
+    }else if(salida=="257"){
+        salida+=" AEthernet";
+    }else if(salida.toInt() >= 258 && salida.toInt() <= 65535){
+        salida+=" Reserved";
+    }
+    return salida;
+}
+
+
+QString Splitter::opCodeARP(QString aux){
+    QString salida = conversor.binarioToDecimal(aux);
+    if(salida == "0"){
+        salida+=" Reserved";
+    }else if(salida=="1"){
+        salida+=" ARP Request";
+    }else if(salida=="2"){
+        salida+=" ARP Reply";
+    }else if(salida=="3"){
+        salida+=" RARP Request";
+    }else if(salida=="4"){
+        salida+=" RARP Reply";
+    }else if(salida=="5"){
+        salida+=" DRARP Request";
+    }else if(salida=="6"){
+        salida+=" DRARP Reply";
+    }else if(salida=="7"){
+        salida+=" DRARP Error";
+    }else if(salida=="8"){
+        salida+=" InARP Request";
+    }else if(salida=="9"){
+        salida+=" InARP Reply";
+    }else if(salida=="10"){
+        salida+=" ARP-NAK";
+    }else if(salida=="11"){
+        salida+=" MARS-Request";
+    }else if(salida=="12"){
+        salida+=" MARS-Multi";
+    }else if(salida=="13"){
+        salida+=" MARS-MServ";
+    }else if(salida=="14"){
+        salida+=" MARS-Join";
+    }else if(salida=="15"){
+        salida+=" MARS-Leave";
+    }else if(salida=="16"){
+        salida+=" MARS-NAK";
+    }else if(salida=="17"){
+        salida+=" MARS-Unserv";
+    }else if(salida=="18"){
+        salida+=" MARS-SJoin";
+    }else if(salida=="19"){
+        salida+=" MARS-SLeave";
+    }else if(salida=="20"){
+        salida+=" MARS-Grouplist-Request";
+    }else if(salida=="21"){
+        salida+=" MARS-Grouplist-Reply";
+    }else if(salida=="22"){
+        salida+=" MARS-Redirect-Map";
+    }else if(salida=="23"){
+        salida+=" MAPOS-UNARP";
+    }else if(salida=="24"){
+        salida+=" OP_EXP1";
+    }else if(salida=="25"){
+        salida+=" OP_EXP2";
+    }else if(salida.toInt() >= 26 && salida.toInt() <= 65534){
+        salida+=" Unassigned";
+    }else if(salida=="65535"){
+        salida+=" Reserved";
+    }
+    return salida;
+}
+
+QString Splitter::tipoCodigoARP(QString aux)
+{
+    QString tipo = conversor.binarioToHex(aux);
+    if(tipo=="800")
+    {
+        tipo+=" IPv4";
+    }
+    else if(tipo=="806")
+    {
+        tipo+=" ARP";
+
+    }
+    else if(tipo=="8035")
+    {
+        tipo+=" RARP";
+    }
+    else if(tipo=="86DD")
+    {
+        tipo+=" IPv6";
+    }
+    else
+    {
+        tipo+=" Invalid Type";
+    }
+    return tipo;
+}
+
+int Splitter::getLongitud(QString aux)
+{
+    return conversor.binarioToDecimal(aux).toInt()*8;
+}
+
+

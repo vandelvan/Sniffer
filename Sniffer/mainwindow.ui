@@ -134,9 +134,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-618</y>
-         <width>403</width>
-         <height>1544</height>
+         <y>-2097</y>
+         <width>406</width>
+         <height>2216</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -576,6 +576,99 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
             </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="datosARP">
+          <property name="title">
+           <string>ARP</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QGroupBox" name="hardARP">
+             <property name="title">
+              <string>Hardware</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QLineEdit" name="hardARPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="protocoloARP">
+             <property name="title">
+              <string>Tipo Protocolo</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QLineEdit" name="protocoloARPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="opCodeARP">
+             <property name="title">
+              <string>Codigo de Operacion</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="QLineEdit" name="opCodeARPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="MACARPorg">
+             <property name="title">
+              <string>MAC Origen</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <item>
+               <widget class="QLineEdit" name="MACARPorgtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="IPARPorg">
+             <property name="title">
+              <string>IP Origen</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_11">
+              <item>
+               <widget class="QLineEdit" name="IPARPorgtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="MACARPDes">
+             <property name="title">
+              <string>MAC Destino</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QLineEdit" name="MACARPDestxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="IPARPDes">
+             <property name="title">
+              <string>IP Destino</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_13">
+              <item>
+               <widget class="QLineEdit" name="IPARPDestxt"/>
+              </item>
+             </layout>
+            </widget>
            </item>
           </layout>
          </widget>

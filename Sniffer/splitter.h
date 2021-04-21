@@ -20,6 +20,10 @@ public:
     QString setDatos(QString aux);
     QString tipoICMP(QString aux);
     QString codigoICMP(QString aux);
+    QString hardARP(QString aux);
+    QString opCodeARP(QString aux);
+    QString tipoCodigoARP(QString aux);
+    int getLongitud(QString aux);
 private:
     Conversor conversor;
 };

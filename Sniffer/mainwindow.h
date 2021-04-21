@@ -32,6 +32,7 @@ private:
     void showEthernet(string);
     void showIP(string);
     void showICMPv4(string);
+    void showARP(string);
     Reader reader;
     Conversor conversor;
     Splitter splitter;
