@@ -224,31 +224,31 @@ QString Splitter::tipoICMP(QString aux){
 QString Splitter::codigoICMP(QString aux){
     QString salida = conversor.binarioToDecimal(aux);
     if(salida=="0"){
-        salida+=" no se puede llegar a la red";
+        salida+=" No se puede llegar a la red";
     }else if(salida=="1"){
-        salida+=" no se puede llegar al host destino";
+        salida+=" No se puede llegar al host destino";
     }else if(salida=="2"){
-        salida+=" el destino no dispone del protocolo solicitado";
+        salida+=" El destino no dispone del protocolo solicitado";
     }else if(salida=="3"){
-        salida+=" no se puede llegar al puerto destino o la aplicacion destino no esta libre";
+        salida+=" No se puede llegar al puerto destino o la aplicacion destino no esta libre";
     }else if(salida=="4"){
-        salida+=" se necesita aplicar fragmentacion, pero el flag indica lo contrario";
+        salida+=" Se necesita aplicar fragmentacion, pero el flag indica lo contrario";
     }else if(salida=="5"){
-        salida+=" la ruta de origen no es correcta";
+        salida+=" La ruta de origen no es correcta";
     }else if(salida=="6"){
-        salida+=" no se conoce la red destino";
+        salida+=" No se conoce la red destino";
     }else if(salida=="7"){
-        salida+=" no se conoce el host destino";
+        salida+=" No se conoce el host destino";
     }else if(salida=="8"){
-        salida+=" el host origen esta aislado";
+        salida+=" El host origen esta aislado";
     }else if(salida=="9"){
-        salida+=" la comunicacion con la red destino esta prohibida por razones administrativas";
+        salida+=" La comunicacion con la red destino esta prohibida por razones administrativas";
     }else if(salida=="10"){
-        salida+=" la comunicacion con el host destino esta prohibida por razones administrativas";
+        salida+=" La comunicacion con el host destino esta prohibida por razones administrativas";
     }else if(salida=="11"){
-        salida+=" no se puede llegar a la red destino debido al tipo de servicio";
+        salida+=" No se puede llegar a la red destino debido al tipo de servicio";
     }else if(salida=="12"){
-        salida+=" no se puede llegar al host destino debido al tipo de servicio";
+        salida+=" No se puede llegar al host destino debido al tipo de servicio";
     }
     return salida;
 }
@@ -411,11 +411,11 @@ QString Splitter::tipoCodigoARP(QString aux)
     QString tipo = conversor.binarioToHex(aux);
     if(tipo=="800")
     {
-        tipo+=" IPv4";
+        tipo="0800 IPv4";
     }
     else if(tipo=="806")
     {
-        tipo+=" ARP";
+        tipo="0806 ARP";
 
     }
     else if(tipo=="8035")

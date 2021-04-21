@@ -91,13 +91,42 @@ public:
     QLineEdit *tipoICMPv4Txt;
     QVBoxLayout *codeICMPv4;
     QLabel *codeICMPv4Lbl;
-    QLineEdit *codeICMPv4Txt;
+    QTextEdit *codeICMPv4Txt;
     QVBoxLayout *checksumICMPv4;
     QLabel *checksumICMPv4Lbl;
     QLineEdit *checksumICMPv4Txt;
     QVBoxLayout *datosICMP;
     QLabel *datosICMPv4Lbl;
     QTextEdit *datosICMPv4Txt;
+    QGroupBox *datosARP;
+    QVBoxLayout *verticalLayout_6;
+    QGroupBox *hardARP;
+    QVBoxLayout *verticalLayout_8;
+    QLineEdit *hardARPtxt;
+    QGroupBox *protocoloARP;
+    QVBoxLayout *verticalLayout_7;
+    QLineEdit *protocoloARPtxt;
+    QGroupBox *lngMAC;
+    QVBoxLayout *verticalLayout_15;
+    QLineEdit *lngMACtxt;
+    QGroupBox *lngIP;
+    QVBoxLayout *verticalLayout_14;
+    QLineEdit *lngIPtxt;
+    QGroupBox *opCodeARP;
+    QVBoxLayout *verticalLayout_9;
+    QLineEdit *opCodeARPtxt;
+    QGroupBox *MACARPorg;
+    QVBoxLayout *verticalLayout_10;
+    QLineEdit *MACARPorgtxt;
+    QGroupBox *IPARPorg;
+    QVBoxLayout *verticalLayout_11;
+    QLineEdit *IPARPorgtxt;
+    QGroupBox *MACARPDes;
+    QVBoxLayout *verticalLayout_12;
+    QLineEdit *MACARPDestxt;
+    QGroupBox *IPARPDes;
+    QVBoxLayout *verticalLayout_13;
+    QLineEdit *IPARPDestxt;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -156,7 +185,7 @@ public:
         datosPaquete->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, -402, 403, 1516));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, -1829, 406, 2370));
         verticalLayout_3 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         macOrigen = new QVBoxLayout();
@@ -329,8 +358,8 @@ public:
         flagsTxt->setObjectName(QString::fromUtf8("flagsTxt"));
         sizePolicy2.setHeightForWidth(flagsTxt->sizePolicy().hasHeightForWidth());
         flagsTxt->setSizePolicy(sizePolicy2);
-        flagsTxt->setMinimumSize(QSize(0, 70));
-        flagsTxt->setMaximumSize(QSize(16777215, 70));
+        flagsTxt->setMinimumSize(QSize(0, 80));
+        flagsTxt->setMaximumSize(QSize(16777215, 80));
         flagsTxt->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
         flags->addWidget(flagsTxt);
@@ -457,8 +486,17 @@ public:
 
         codeICMPv4->addWidget(codeICMPv4Lbl);
 
-        codeICMPv4Txt = new QLineEdit(datosICMPv4);
+        codeICMPv4Txt = new QTextEdit(datosICMPv4);
         codeICMPv4Txt->setObjectName(QString::fromUtf8("codeICMPv4Txt"));
+        QSizePolicy sizePolicy4(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(codeICMPv4Txt->sizePolicy().hasHeightForWidth());
+        codeICMPv4Txt->setSizePolicy(sizePolicy4);
+        codeICMPv4Txt->setMinimumSize(QSize(0, 41));
+        codeICMPv4Txt->setMaximumSize(QSize(16777215, 41));
+        codeICMPv4Txt->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        codeICMPv4Txt->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
         codeICMPv4->addWidget(codeICMPv4Txt);
 
@@ -499,6 +537,121 @@ public:
 
 
         verticalLayout_3->addWidget(datosICMPv4);
+
+        datosARP = new QGroupBox(scrollAreaWidgetContents_2);
+        datosARP->setObjectName(QString::fromUtf8("datosARP"));
+        verticalLayout_6 = new QVBoxLayout(datosARP);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        hardARP = new QGroupBox(datosARP);
+        hardARP->setObjectName(QString::fromUtf8("hardARP"));
+        verticalLayout_8 = new QVBoxLayout(hardARP);
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+        hardARPtxt = new QLineEdit(hardARP);
+        hardARPtxt->setObjectName(QString::fromUtf8("hardARPtxt"));
+
+        verticalLayout_8->addWidget(hardARPtxt);
+
+
+        verticalLayout_6->addWidget(hardARP);
+
+        protocoloARP = new QGroupBox(datosARP);
+        protocoloARP->setObjectName(QString::fromUtf8("protocoloARP"));
+        verticalLayout_7 = new QVBoxLayout(protocoloARP);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        protocoloARPtxt = new QLineEdit(protocoloARP);
+        protocoloARPtxt->setObjectName(QString::fromUtf8("protocoloARPtxt"));
+
+        verticalLayout_7->addWidget(protocoloARPtxt);
+
+
+        verticalLayout_6->addWidget(protocoloARP);
+
+        lngMAC = new QGroupBox(datosARP);
+        lngMAC->setObjectName(QString::fromUtf8("lngMAC"));
+        verticalLayout_15 = new QVBoxLayout(lngMAC);
+        verticalLayout_15->setObjectName(QString::fromUtf8("verticalLayout_15"));
+        lngMACtxt = new QLineEdit(lngMAC);
+        lngMACtxt->setObjectName(QString::fromUtf8("lngMACtxt"));
+
+        verticalLayout_15->addWidget(lngMACtxt);
+
+
+        verticalLayout_6->addWidget(lngMAC);
+
+        lngIP = new QGroupBox(datosARP);
+        lngIP->setObjectName(QString::fromUtf8("lngIP"));
+        verticalLayout_14 = new QVBoxLayout(lngIP);
+        verticalLayout_14->setObjectName(QString::fromUtf8("verticalLayout_14"));
+        lngIPtxt = new QLineEdit(lngIP);
+        lngIPtxt->setObjectName(QString::fromUtf8("lngIPtxt"));
+
+        verticalLayout_14->addWidget(lngIPtxt);
+
+
+        verticalLayout_6->addWidget(lngIP);
+
+        opCodeARP = new QGroupBox(datosARP);
+        opCodeARP->setObjectName(QString::fromUtf8("opCodeARP"));
+        verticalLayout_9 = new QVBoxLayout(opCodeARP);
+        verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
+        opCodeARPtxt = new QLineEdit(opCodeARP);
+        opCodeARPtxt->setObjectName(QString::fromUtf8("opCodeARPtxt"));
+
+        verticalLayout_9->addWidget(opCodeARPtxt);
+
+
+        verticalLayout_6->addWidget(opCodeARP);
+
+        MACARPorg = new QGroupBox(datosARP);
+        MACARPorg->setObjectName(QString::fromUtf8("MACARPorg"));
+        verticalLayout_10 = new QVBoxLayout(MACARPorg);
+        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
+        MACARPorgtxt = new QLineEdit(MACARPorg);
+        MACARPorgtxt->setObjectName(QString::fromUtf8("MACARPorgtxt"));
+
+        verticalLayout_10->addWidget(MACARPorgtxt);
+
+
+        verticalLayout_6->addWidget(MACARPorg);
+
+        IPARPorg = new QGroupBox(datosARP);
+        IPARPorg->setObjectName(QString::fromUtf8("IPARPorg"));
+        verticalLayout_11 = new QVBoxLayout(IPARPorg);
+        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
+        IPARPorgtxt = new QLineEdit(IPARPorg);
+        IPARPorgtxt->setObjectName(QString::fromUtf8("IPARPorgtxt"));
+
+        verticalLayout_11->addWidget(IPARPorgtxt);
+
+
+        verticalLayout_6->addWidget(IPARPorg);
+
+        MACARPDes = new QGroupBox(datosARP);
+        MACARPDes->setObjectName(QString::fromUtf8("MACARPDes"));
+        verticalLayout_12 = new QVBoxLayout(MACARPDes);
+        verticalLayout_12->setObjectName(QString::fromUtf8("verticalLayout_12"));
+        MACARPDestxt = new QLineEdit(MACARPDes);
+        MACARPDestxt->setObjectName(QString::fromUtf8("MACARPDestxt"));
+
+        verticalLayout_12->addWidget(MACARPDestxt);
+
+
+        verticalLayout_6->addWidget(MACARPDes);
+
+        IPARPDes = new QGroupBox(datosARP);
+        IPARPDes->setObjectName(QString::fromUtf8("IPARPDes"));
+        verticalLayout_13 = new QVBoxLayout(IPARPDes);
+        verticalLayout_13->setObjectName(QString::fromUtf8("verticalLayout_13"));
+        IPARPDestxt = new QLineEdit(IPARPDes);
+        IPARPDestxt->setObjectName(QString::fromUtf8("IPARPDestxt"));
+
+        verticalLayout_13->addWidget(IPARPDestxt);
+
+
+        verticalLayout_6->addWidget(IPARPDes);
+
+
+        verticalLayout_3->addWidget(datosARP);
 
         datosPaquete->setWidget(scrollAreaWidgetContents_2);
 
@@ -552,8 +705,23 @@ public:
         datosICMPv4->setTitle(QApplication::translate("MainWindow", "ICMP", nullptr));
         tipoICMPv4Lbl->setText(QApplication::translate("MainWindow", "Tipo:", nullptr));
         codeICMPv4Lbl->setText(QApplication::translate("MainWindow", "Codigo:", nullptr));
+        codeICMPv4Txt->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         checksumICMPv4Lbl->setText(QApplication::translate("MainWindow", "Checksum:", nullptr));
         datosICMPv4Lbl->setText(QApplication::translate("MainWindow", "Datos ICMP:", nullptr));
+        datosARP->setTitle(QApplication::translate("MainWindow", "ARP", nullptr));
+        hardARP->setTitle(QApplication::translate("MainWindow", "Hardware", nullptr));
+        protocoloARP->setTitle(QApplication::translate("MainWindow", "Tipo Protocolo", nullptr));
+        lngMAC->setTitle(QApplication::translate("MainWindow", "Longitud MAC", nullptr));
+        lngIP->setTitle(QApplication::translate("MainWindow", "Longitud IP", nullptr));
+        opCodeARP->setTitle(QApplication::translate("MainWindow", "Codigo de Operacion", nullptr));
+        MACARPorg->setTitle(QApplication::translate("MainWindow", "MAC Origen", nullptr));
+        IPARPorg->setTitle(QApplication::translate("MainWindow", "IP Origen", nullptr));
+        MACARPDes->setTitle(QApplication::translate("MainWindow", "MAC Destino", nullptr));
+        IPARPDes->setTitle(QApplication::translate("MainWindow", "IP Destino", nullptr));
     } // retranslateUi
 
 };
