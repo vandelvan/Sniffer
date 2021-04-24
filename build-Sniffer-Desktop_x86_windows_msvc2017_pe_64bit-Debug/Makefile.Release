@@ -19,13 +19,13 @@ CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStri
 INCPATH       = -I..\Sniffer -I. -I..\..\..\..\QTversiones\5.12.4\msvc2017_64\include -I..\..\..\..\QTversiones\5.12.4\msvc2017_64\include\QtWidgets -I..\..\..\..\QTversiones\5.12.4\msvc2017_64\include\QtGui -I..\..\..\..\QTversiones\5.12.4\msvc2017_64\include\QtANGLE -I..\..\..\..\QTversiones\5.12.4\msvc2017_64\include\QtCore -Irelease -I. -I\include -I..\..\..\..\QTversiones\5.12.4\msvc2017_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /INCREMENTAL:NO /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Widgets.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Gui.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Core.lib  C:\QTversiones\5.12.4\msvc2017_64\lib\qtmain.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.6.11-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib shell32.lib 
+LIBS          = C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Widgets.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Gui.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Core.lib release\SnifferIco.res  C:\QTversiones\5.12.4\msvc2017_64\lib\qtmain.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.6.11-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib shell32.lib 
 QMAKE         = C:\QTversiones\5.12.4\msvc2017_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = release\SnifferIco.res
 COPY          = copy /y
 SED           = $(QMAKE) -install sed
 COPY_FILE     = copy /y
@@ -141,11 +141,14 @@ DESTDIR_TARGET = release\Sniffer.exe
 first: all
 all: Makefile.Release  release\Sniffer.exe
 
-release\Sniffer.exe: C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Widgets.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Gui.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Core.lib C:\QTversiones\5.12.4\msvc2017_64\lib\qtmain.lib ui_mainwindow.h $(OBJECTS) 
+release\Sniffer.exe: C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Widgets.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Gui.lib C:\QTversiones\5.12.4\msvc2017_64\lib\Qt5Core.lib C:\QTversiones\5.12.4\msvc2017_64\lib\qtmain.lib ui_mainwindow.h $(OBJECTS) release\SnifferIco.res
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
 release\conversor.obj release\main.obj release\mainwindow.obj release\reader.obj release\splitter.obj release\moc_mainwindow.obj
 $(LIBS)
 <<
+
+release\SnifferIco.res: ..\Sniffer\SnifferIco.rc
+	rc /NOLOGO $(DEFINES) -fo release\SnifferIco.res ..\Sniffer\SnifferIco.rc
 
 qmake: FORCE
 	@$(QMAKE) -o Makefile.Release ..\Sniffer\Sniffer.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -157,6 +160,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) release\conversor.obj release\main.obj release\mainwindow.obj release\reader.obj release\splitter.obj release\moc_mainwindow.obj
+	-$(DEL_FILE) release\SnifferIco.res
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
