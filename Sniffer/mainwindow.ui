@@ -134,7 +134,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-876</y>
+         <y>-646</y>
          <width>403</width>
          <height>2331</height>
         </rect>
@@ -320,7 +320,7 @@ p, li { white-space: pre-wrap; }
                 <bool>true</bool>
                </property>
                <property name="text">
-                <string>Tipo de Flujo:</string>
+                <string>Etiqueta de flujo:</string>
                </property>
               </widget>
              </item>

@@ -191,7 +191,7 @@ public:
         datosPaquete->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, -876, 403, 2331));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, -646, 403, 2331));
         verticalLayout_3 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         macOrigen = new QVBoxLayout();
@@ -727,7 +727,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        tipoFlujoLbl->setText(QApplication::translate("MainWindow", "Tipo de Flujo:", nullptr));
+        tipoFlujoLbl->setText(QApplication::translate("MainWindow", "Etiqueta de flujo:", nullptr));
         longitudLbl->setText(QApplication::translate("MainWindow", "Longitud total:", nullptr));
         identificadorLbl->setText(QApplication::translate("MainWindow", "Identificador:", nullptr));
         flagsLbl->setText(QApplication::translate("MainWindow", "Flags:", nullptr));
