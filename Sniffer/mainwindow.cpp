@@ -76,8 +76,7 @@ void MainWindow::showIPv4(string dump){
     ui->datosIP->show();
     resetIP();
     //Esconde campos que no utiliza ipv4
-    ui->tipoFlujoLbl->hide();
-    ui->tipoFlujoTxt->hide();
+    ui->tipoFlujo->hide();
 
     QString binary = conversor.hexToBinaryQString(dump), protocolo;
     ui->versionIPTxt->setText(splitter.versionIP(binary.mid(0, 4)));
@@ -103,8 +102,7 @@ void MainWindow::showIPv4(string dump){
 }
 
 void MainWindow::showICMPv4(string dump){
-    ui->datosExtLbl->hide();
-    ui->datosExtTxt->hide();
+    ui->datosExt->hide();
     QString binary = conversor.hexToBinaryQString(dump);
     ui->tipoICMPv4Txt->setText(splitter.tipoICMP(binary.mid(0, 8)));
     ui->codeICMPv4Txt->setText(splitter.codigoICMP(binary.mid(8, 8)));
@@ -133,27 +131,22 @@ void MainWindow::showIPv6(string dump){
     ui->datosIP->show();
     resetIP();
     //Esconde campos que no utiliza ipv6
-    ui->cabeceraTxt->hide();
-    ui->cabeceraLbl->hide();
-    ui->identificadorLbl->hide();
-    ui->identificadorTxt->hide();
-    ui->flagsLbl->hide();
-    ui->flagsTxt->hide();
-    ui->fragmentoLbl->hide();
-    ui->fragmentoTxt->hide();
-    ui->checksumLbl->hide();
-    ui->checksumTxt->hide();
+    ui->cabecera->hide();
+    ui->identificador->hide();
+    ui->flags->hide();
+    ui->fragmento->hide();
+    ui->checksum->hide();
 
     QString binary = conversor.hexToBinaryQString(dump), protocolo;
     ui->versionIPTxt->setText(splitter.versionIP(binary.mid(0, 4)));
-    ui->tipoServicioLbl->setText("Clase de trafico: ");
+    ui->tipoServicio->setTitle("Clase de trafico: ");
     ui->tipoServicioTxt->setText(splitter.tipoSer(binary.mid(4, 8)));
     ui->tipoFlujoTxt->setText(conversor.binarioToDecimal(binary.mid(12,20)));
     ui->longitudTxt->setText(conversor.binarioToDecimal(binary.mid(32, 16)));
     protocolo=splitter.tipoProtocolo(binary.mid(48, 8));
-    ui->protocoloLbl->setText("Siguiente encabezado: ");
+    ui->protocolo->setTitle("Siguiente encabezado: ");
     ui->protocoloTxt->setText(protocolo);
-    ui->ttlLbl->setText("Limite de saltos: ");
+    ui->ttl->setTitle("Limite de saltos: ");
     ui->ttlTxt->setText(conversor.binarioToDecimal(binary.mid(56, 8)));
     ui->dirOrigenTxt->setText(splitter.mac128(binary.mid(64,128)));
     ui->dirDestinoTxt->setText(splitter.mac128(binary.mid(192,128)));
@@ -164,21 +157,14 @@ void MainWindow::showIPv6(string dump){
 
 void MainWindow::resetIP()
 {
-    ui->tipoServicioLbl->setText("Tipo de servicio: ");
-    ui->protocoloLbl->setText("Protocolo: ");
-    ui->ttlLbl->setText("Tiempo de vida (TTL): ");
-    ui->tipoFlujoLbl->show();
-    ui->tipoFlujoTxt->show();
-    ui->datosExtLbl->show();
-    ui->datosExtTxt->show();
-    ui->cabeceraTxt->show();
-    ui->cabeceraLbl->show();
-    ui->identificadorLbl->show();
-    ui->identificadorTxt->show();
-    ui->flagsLbl->show();
-    ui->flagsTxt->show();
-    ui->fragmentoLbl->show();
-    ui->fragmentoTxt->show();
-    ui->checksumLbl->show();
-    ui->checksumTxt->show();
+    ui->tipoServicio->setTitle("Tipo de servicio: ");
+    ui->protocolo->setTitle("Protocolo: ");
+    ui->ttl->setTitle("Tiempo de vida (TTL): ");
+    ui->tipoFlujo->show();
+    ui->datosExt->show();
+    ui->cabecera->show();
+    ui->identificador->show();
+    ui->flags->show();
+    ui->fragmento->show();
+    ui->checksum->show();
 }
