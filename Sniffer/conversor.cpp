@@ -128,3 +128,11 @@ QString Conversor::binarioToHex(QString aux)
     aux=aux.toUpper();
     return aux;
 }
+
+QString Conversor::hexToDecimal(QString aux)
+{
+    bool Ok;
+    int iValue = aux.toInt(&Ok, 16);
+    aux= QString::number(iValue);
+    return aux;
+}

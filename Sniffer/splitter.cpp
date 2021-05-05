@@ -248,6 +248,38 @@ QString Splitter::tipoICMP(QString aux){
     return salida;
 }
 
+QString Splitter::tipoICMPv6(QString aux){
+    QString salida=conversor.hexToDecimal(aux);
+    if(salida=="1"){
+        salida+=" Destination Unreachable";
+    }else if(salida=="2"){
+        salida+=" Packet Too Big";
+    }else if(salida=="3"){
+        salida+=" Time Exceeded";
+    }else if(salida=="4"){
+        salida+=" Parameter Problem";
+    }else if(salida=="100"){
+        salida+=" Private experimentation";
+    }else if(salida=="101"){
+        salida+=" Private experimentation";
+    }else if(salida=="128"){
+        salida+=" Echo Request";
+    }else if(salida=="129"){
+        salida+=" Echo Reply";
+    }else if(salida=="133"){
+        salida+=" Router Solicitation (NDP)";
+    }else if(salida=="134"){
+        salida+=" Router Advertisement (NDP)";
+    }else if(salida=="135"){
+        salida+=" Neighbor Solicitation (NDP)";
+    }else if(salida=="136"){
+        salida+=" Neighbor Advertisement (NDP)";
+    }else if(salida=="137"){
+        salida+=" Redirect Message (NDP)";
+    }
+    return salida;
+}
+
 QString Splitter::codigoICMP(QString aux){
     QString salida = conversor.binarioToDecimal(aux);
     if(salida=="0"){
@@ -276,6 +308,40 @@ QString Splitter::codigoICMP(QString aux){
         salida+=" No se puede llegar a la red destino debido al tipo de servicio";
     }else if(salida=="12"){
         salida+=" No se puede llegar al host destino debido al tipo de servicio";
+    }
+    return salida;
+}
+
+QString Splitter::codigoICMPv6(QString aux, QString tipo){
+    QString salida=conversor.hexToDecimal(aux);
+    if(tipo=="1 Destination Unreachable"){
+        if(salida=="0"){
+            salida+=" No existe ruta de destino";
+        }else if(salida=="1"){
+            salida+=" Comunicacion con el destino administrativamente prohibida";
+        }else if(salida=="2"){
+            salida+=" No asignado";
+        }else if(salida=="3"){
+            salida+=" Direccion inalcanzable";
+        }
+    }else if(tipo=="2 Packet Too Big"){
+        salida="0";
+    }else if(tipo=="3 Time Exceeded"){
+        if(salida=="0"){
+            salida+=" Limite de salto excedido";
+        }else if(salida=="1"){
+            salida+=" Teiempo de reensamble de fragmento excedido";
+        }
+    }else if(tipo=="4 Parameter Problem"){
+        if(salida=="0"){
+            salida+=" Se encontro un encabezado erroneo";
+        }else if(salida=="1"){
+            salida+=" Se encontro un tipo desconocido en el siguiente fragmento";
+        }else if(salida=="2"){
+            salida+=" Se encontro una opcion IPv6 desconocida";
+        }
+    }else{
+        salida="0";
     }
     return salida;
 }

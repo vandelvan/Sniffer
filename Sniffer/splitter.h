@@ -22,6 +22,8 @@ public:
     QString setDatos(QString aux);
     QString tipoICMP(QString aux);
     QString codigoICMP(QString aux);
+    QString tipoICMPv6(QString aux);
+    QString codigoICMPv6(QString aux, QString tipo);
     QString hardARP(QString aux);
     QString opCodeARP(QString aux);
     QString tipoCodigoARP(QString aux);

@@ -13,5 +13,6 @@ public:
     QString stringToDecimalQString(std::string cadena);
     QString binarioToDecimal(QString aux);
     QString binarioToHex(QString aux);
+    QString hexToDecimal(QString aux);
 };
 #endif // CONVERSOR_H

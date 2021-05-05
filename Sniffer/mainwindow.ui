@@ -134,47 +134,53 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-1700</y>
-         <width>406</width>
-         <height>2865</height>
+         <y>-1184</y>
+         <width>403</width>
+         <height>2331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QGroupBox" name="macOrigen">
-          <property name="title">
-           <string>Direccion MAC Origen:</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_16">
-           <item>
-            <widget class="QLineEdit" name="macOrigenTxt"/>
-           </item>
-          </layout>
-         </widget>
+         <layout class="QVBoxLayout" name="macOrigen">
+          <item>
+           <widget class="QLabel" name="macOrigenLbl">
+            <property name="text">
+             <string>Direccion MAC Origen:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="macOrigenTxt"/>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QGroupBox" name="macDestino_2">
-          <property name="title">
-           <string>Direccion MAC Destino:</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_17">
-           <item>
-            <widget class="QLineEdit" name="macDestinoTxt"/>
-           </item>
-          </layout>
-         </widget>
+         <layout class="QVBoxLayout" name="macDestino">
+          <item>
+           <widget class="QLabel" name="macDestinoLbl">
+            <property name="text">
+             <string>Direccion MAC Destino:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="macDestinoTxt"/>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QGroupBox" name="ethernetType">
-          <property name="title">
-           <string>Ethernet Type Code:</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_18">
-           <item>
-            <widget class="QLineEdit" name="etherTypeTxt"/>
-           </item>
-          </layout>
-         </widget>
+         <layout class="QVBoxLayout" name="ethernetType">
+          <item>
+           <widget class="QLabel" name="etherTypeLbl">
+            <property name="text">
+             <string>Ethernet Type Code:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="etherTypeTxt"/>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QGroupBox" name="datosEthernet">
@@ -236,339 +242,378 @@ p, li { white-space: pre-wrap; }
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
-            <widget class="QGroupBox" name="versionIP">
-             <property name="title">
-              <string>Version:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_19">
-              <item>
-               <widget class="QLineEdit" name="versionIPTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="versionIP">
+             <item>
+              <widget class="QLabel" name="versionIPLbl">
+               <property name="text">
+                <string>Version:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="versionIPTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="cabecera">
-             <property name="title">
-              <string>Tamaño de cabecera:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_20">
-              <item>
-               <widget class="QLineEdit" name="cabeceraTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="cabecera">
+             <item>
+              <widget class="QLabel" name="cabeceraLbl">
+               <property name="text">
+                <string>Tamaño de cabecera:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="cabeceraTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="tipoServicio">
-             <property name="title">
-              <string>Tipo de servicio:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_21">
-              <item>
-               <widget class="QTextEdit" name="tipoServicioTxt">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>80</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>80</height>
-                 </size>
-                </property>
-                <property name="verticalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAlwaysOff</enum>
-                </property>
-                <property name="html">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+            <layout class="QVBoxLayout" name="tipoServicio">
+             <item>
+              <widget class="QLabel" name="tipoServicioLbl">
+               <property name="text">
+                <string>Tipo de servicio:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="tipoServicioTxt">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="html">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="tipoFlujo">
-             <property name="title">
-              <string>Etiqueta de flujo:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_22">
-              <item>
-               <widget class="QLineEdit" name="tipoFlujoTxt">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="readOnly">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="tipoFlujo">
+             <item>
+              <widget class="QLabel" name="tipoFlujoLbl">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Tipo de Flujo:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="tipoFlujoTxt">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="readOnly">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="longitud">
-             <property name="title">
-              <string>Longitud total:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_23">
-              <item>
-               <widget class="QLineEdit" name="longitudTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="longitud">
+             <item>
+              <widget class="QLabel" name="longitudLbl">
+               <property name="text">
+                <string>Longitud total:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="longitudTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="identificador">
-             <property name="title">
-              <string>Identificador:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_24">
-              <item>
-               <widget class="QLineEdit" name="identificadorTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="identificador">
+             <item>
+              <widget class="QLabel" name="identificadorLbl">
+               <property name="text">
+                <string>Identificador:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="identificadorTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="flags">
-             <property name="title">
-              <string>Flags:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_25">
-              <item>
-               <widget class="QTextEdit" name="flagsTxt">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>80</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>80</height>
-                 </size>
-                </property>
-                <property name="verticalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAlwaysOff</enum>
-                </property>
-                <property name="html">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+            <layout class="QVBoxLayout" name="flags">
+             <item>
+              <widget class="QLabel" name="flagsLbl">
+               <property name="text">
+                <string>Flags:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="flagsTxt">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="html">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="fragmento">
-             <property name="title">
-              <string>Posicion del fragmento: </string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_26">
-              <item>
-               <widget class="QLineEdit" name="fragmentoTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="fragmento">
+             <item>
+              <widget class="QLabel" name="fragmentoLbl">
+               <property name="text">
+                <string>Posicion del fragmento: </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="fragmentoTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="ttl">
-             <property name="title">
-              <string>Tiempo de vida (TTL):</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_27">
-              <item>
-               <widget class="QLineEdit" name="ttlTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="ttl">
+             <item>
+              <widget class="QLabel" name="ttlLbl">
+               <property name="text">
+                <string>Tiempo de vida (TTL):</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="ttlTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="protocolo">
-             <property name="title">
-              <string>Protocolo:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_28">
-              <item>
-               <widget class="QLineEdit" name="protocoloTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="protocolo">
+             <item>
+              <widget class="QLabel" name="protocoloLbl">
+               <property name="text">
+                <string>Protocolo:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="protocoloTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="checksum">
-             <property name="title">
-              <string>Checksum:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_29">
-              <item>
-               <widget class="QLineEdit" name="checksumTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="checksum">
+             <item>
+              <widget class="QLabel" name="checksumLbl">
+               <property name="text">
+                <string>Checksum:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="checksumTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="dirOrigen">
-             <property name="title">
-              <string>Dirección origen:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_30">
-              <item>
-               <widget class="QLineEdit" name="dirOrigenTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="dirOrigen">
+             <item>
+              <widget class="QLabel" name="dirOrigenLbl">
+               <property name="text">
+                <string>Dirección origen:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="dirOrigenTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="dirDestino">
-             <property name="title">
-              <string>Dirección destino:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_31">
-              <item>
-               <widget class="QLineEdit" name="dirDestinoTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="dirDestino">
+             <item>
+              <widget class="QLabel" name="dirDestinoLbl">
+               <property name="text">
+                <string>Dirección destino:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="dirDestinoTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="datosExt">
-             <property name="title">
-              <string>Datos del paquete:</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_32">
-              <item>
-               <widget class="QTextEdit" name="datosExtTxt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="datosExt">
+             <item>
+              <widget class="QLabel" name="datosExtLbl">
+               <property name="text">
+                <string>Datos del paquete:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="datosExtTxt"/>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
         </item>
         <item>
-         <widget class="QGroupBox" name="datosICMPv4">
+         <widget class="QGroupBox" name="datosICMPGen">
           <property name="title">
            <string>ICMP</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
-            <widget class="QGroupBox" name="tipoICMPv4">
-             <property name="title">
-              <string>Tipo:</string>
-             </property>
-             <layout class="QVBoxLayout" name="_2">
-              <item>
-               <widget class="QLineEdit" name="tipoICMPv4Txt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="tipoICMPv">
+             <item>
+              <widget class="QLabel" name="tipoICMPvLbl">
+               <property name="text">
+                <string>Tipo:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="tipoICMPvTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="codeICMPv4">
-             <property name="title">
-              <string>Codigo:</string>
-             </property>
-             <layout class="QVBoxLayout" name="_3">
-              <item>
-               <widget class="QTextEdit" name="codeICMPv4Txt">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>41</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>41</height>
-                 </size>
-                </property>
-                <property name="verticalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAlwaysOff</enum>
-                </property>
-                <property name="horizontalScrollBarPolicy">
-                 <enum>Qt::ScrollBarAlwaysOff</enum>
-                </property>
-                <property name="html">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+            <layout class="QVBoxLayout" name="codeICMPv">
+             <item>
+              <widget class="QLabel" name="codeICMPvLbl">
+               <property name="text">
+                <string>Codigo:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="codeICMPvTxt">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>41</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>41</height>
+                </size>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="html">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="checksumICMPv4">
-             <property name="title">
-              <string>Checksum:</string>
-             </property>
-             <layout class="QVBoxLayout" name="_4">
-              <item>
-               <widget class="QLineEdit" name="checksumICMPv4Txt"/>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="checksumICMPv">
+             <item>
+              <widget class="QLabel" name="checksumICMPvLbl">
+               <property name="text">
+                <string>Checksum:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="checksumICMPvTxt"/>
+             </item>
+            </layout>
            </item>
            <item>
-            <widget class="QGroupBox" name="datosICMP">
-             <property name="title">
-              <string>Datos ICMP:</string>
-             </property>
-             <layout class="QVBoxLayout" name="_5">
-              <item>
-               <widget class="QTextEdit" name="datosICMPv4Txt">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>100</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>100</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
+            <layout class="QVBoxLayout" name="datosICMP">
+             <item>
+              <widget class="QLabel" name="datosICMPvLbl">
+               <property name="text">
+                <string>Datos ICMP:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="datosICMPvTxt">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>100</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
