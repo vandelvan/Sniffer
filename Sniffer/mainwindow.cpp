@@ -36,6 +36,7 @@ void MainWindow::on_seleccionarArchivo_clicked()
     ui->datosIP->hide();
     ui->datosICMPGen->hide();
     ui->datosARP->hide();
+    ui->datosTCP->hide();
     QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir bin"), "~/", tr("*.bin"));
     QByteArray byteArray = reader.readFile(fileName);
     if(byteArray == nullptr)
