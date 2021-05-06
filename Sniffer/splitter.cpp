@@ -526,6 +526,57 @@ QString Splitter::tipoCodigoARP(QString aux)
     return tipo;
 }
 
+QString Splitter::puertosTCP(QString aux)
+{
+    QString puerto = conversor.binarioToDecimal(aux);
+    int prt = puerto.toInt();
+    if(prt == 0 && prt <= 1023)
+    {
+        puerto += " Puerto conocido";
+        switch (prt) {
+        case 20:
+        case 21:
+            puerto += " FTP";
+            break;
+        case 22:
+            puerto += " SSH";
+            break;
+        case 23:
+            puerto += " TELNET";
+            break;
+        case 25:
+            puerto += " SMTP";
+            break;
+        case 53:
+            puerto += " DNS";
+            break;
+        case 80:
+            puerto += " HTTP";
+            break;
+        case 110:
+            puerto += " POP3";
+            break;
+        case 143:
+            puerto += " IMAP";
+            break;
+        case 443:
+            puerto += " HTTPS";
+            break;
+        case 993:
+            puerto += " IMAP SSL";
+            break;
+        case 995:
+            puerto += " POP SSL";
+            break;
+        }
+    }
+    else if(prt == 1024 && prt <= 49152)
+        puerto += " Puerto registrado";
+    else
+        puerto += " Puerto dinamico o privado";
+    return puerto;
+}
+
 int Splitter::getLongitud(QString aux)
 {
     return conversor.binarioToDecimal(aux).toInt()*8;

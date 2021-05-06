@@ -134,9 +134,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-2506</y>
+         <y>-4379</y>
          <width>406</width>
-         <height>2593</height>
+         <height>4526</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -683,6 +683,252 @@ p, li { white-space: pre-wrap; }
              <layout class="QVBoxLayout" name="verticalLayout_13">
               <item>
                <widget class="QLineEdit" name="IPARPDestxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="datosTCP">
+          <property name="title">
+           <string>TCP</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_16">
+           <item>
+            <widget class="QGroupBox" name="puertoOrigenTCP">
+             <property name="title">
+              <string>Puerto Origen:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_17">
+              <item>
+               <widget class="QLineEdit" name="puertoOrigenTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="puertoDestinoTCP">
+             <property name="title">
+              <string>Puerto Destino</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_18">
+              <item>
+               <widget class="QLineEdit" name="puertoDestinoTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="numeroSecuenciaTCP">
+             <property name="title">
+              <string>Numero de secuencia:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_19">
+              <item>
+               <widget class="QLineEdit" name="numeroSecuenciaTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="numeroACKTCP">
+             <property name="title">
+              <string>Numero de Acuse</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_20">
+              <item>
+               <widget class="QLineEdit" name="numeroACKTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="longitudTCP">
+             <property name="title">
+              <string>Longitud de Cabecera</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_21">
+              <item>
+               <widget class="QLineEdit" name="longitudTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="banderasTCP">
+             <property name="title">
+              <string>Banderas:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_22">
+              <item>
+               <widget class="QGroupBox" name="reservadoTCP">
+                <property name="title">
+                 <string>Reservado:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_23">
+                 <item>
+                  <widget class="QLineEdit" name="reservadoTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="nonceTCP">
+                <property name="title">
+                 <string>Nonce:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_24">
+                 <item>
+                  <widget class="QLineEdit" name="nonceTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="cwrTCP">
+                <property name="title">
+                 <string>CWR:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_25">
+                 <item>
+                  <widget class="QLineEdit" name="cwrTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="eceTCP">
+                <property name="title">
+                 <string>ECE:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_26">
+                 <item>
+                  <widget class="QLineEdit" name="eceTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="urgTCP">
+                <property name="title">
+                 <string>Urgente:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_27">
+                 <item>
+                  <widget class="QLineEdit" name="urgTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="ackTCP">
+                <property name="title">
+                 <string>Acuse:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_28">
+                 <item>
+                  <widget class="QLineEdit" name="ackTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="pushTCP">
+                <property name="title">
+                 <string>Push</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_29">
+                 <item>
+                  <widget class="QLineEdit" name="pushTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="resetTCP">
+                <property name="title">
+                 <string>Reset:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_30">
+                 <item>
+                  <widget class="QLineEdit" name="resetTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="synTCP">
+                <property name="title">
+                 <string>Syn:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_31">
+                 <item>
+                  <widget class="QLineEdit" name="synTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="finTCP">
+                <property name="title">
+                 <string>Fin:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_32">
+                 <item>
+                  <widget class="QLineEdit" name="finTCPtxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="ventanaTCP">
+             <property name="title">
+              <string>Tamaño de ventana</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_33">
+              <item>
+               <widget class="QLineEdit" name="ventanaTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="checksumTCP">
+             <property name="title">
+              <string>Checksum:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_34">
+              <item>
+               <widget class="QLineEdit" name="checksumTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="puntUrgenteTCP">
+             <property name="title">
+              <string>Puntero Urgente:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_35">
+              <item>
+               <widget class="QLineEdit" name="puntUrgenteTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="dumpTCP">
+             <property name="title">
+              <string>Datos:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_36">
+              <item>
+               <widget class="QTextEdit" name="dumpTCPtxt"/>
               </item>
              </layout>
             </widget>

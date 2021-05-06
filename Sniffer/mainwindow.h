@@ -35,6 +35,7 @@ private:
     void showARP(string);
     void showIPv6(string);
     void showICMPv6(string);
+    void showTCP(string);
     void resetIP();
     Reader reader;
     Conversor conversor;

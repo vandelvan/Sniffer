@@ -27,6 +27,7 @@ public:
     QString hardARP(QString aux);
     QString opCodeARP(QString aux);
     QString tipoCodigoARP(QString aux);
+    QString puertosTCP(QString aux);
     int getLongitud(QString aux);
 private:
     Conversor conversor;

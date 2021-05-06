@@ -13,6 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->datosIP->hide();
     ui->datosICMPGen->hide();
     ui->datosARP->hide();
+    ui->datosTCP->hide();
+    foreach(QLineEdit* le, findChildren<QLineEdit*>()) {
+        le->setReadOnly(true);
+    }
+    foreach(QTextEdit* te, findChildren<QTextEdit*>()) {
+        te->setReadOnly(true);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -96,6 +103,10 @@ void MainWindow::showIPv4(string dump){
     if(protocolo=="ICMPv4"){
         showICMPv4(dump.substr(40));
     }
+    else if(protocolo=="TCP")
+    {
+        showTCP(dump.substr(40));
+    }
     else{
         ui->datosExtTxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(40)).toUpper()));
     }
@@ -169,6 +180,31 @@ void MainWindow::showICMPv6(string dump){
     ui->datosICMPvTxt->setText(QString::fromStdString(dump.substr(8)).toUpper());
     ui->datosICMPGen->show();
 
+}
+
+void MainWindow::showTCP(string dump){
+    ui->datosExt->hide();
+    QString binary = conversor.hexToBinaryQString(dump);
+    ui->puertoOrigenTCPtxt->setText(splitter.puertosTCP(binary.mid(0,16)));
+    ui->puertoDestinoTCPtxt->setText(splitter.puertosTCP(binary.mid(16,16)));
+    ui->numeroSecuenciaTCPtxt->setText(conversor.binarioToDecimal(binary.mid(32,32)));
+    ui->numeroACKTCPtxt->setText(conversor.binarioToDecimal(binary.mid(64,32)));
+    ui->longitudTCPtxt->setText(conversor.binarioToDecimal(binary.mid(96,4)) + " palabras");
+    ui->reservadoTCPtxt->setText(conversor.binarioToDecimal(binary.mid(100,3)));
+    ui->nonceTCPtxt->setText(binary.mid(103,1));
+    ui->cwrTCPtxt->setText(binary.mid(104,1));
+    ui->eceTCPtxt->setText(binary.mid(105,1));
+    ui->urgTCPtxt->setText(binary.mid(106,1));
+    ui->ackTCPtxt->setText(binary.mid(107,1));
+    ui->pushTCPtxt->setText(binary.mid(108,1));
+    ui->resetTCPtxt->setText(binary.mid(109,1));
+    ui->synTCPtxt->setText(binary.mid(110,1));
+    ui->finTCPtxt->setText(binary.mid(111,1));
+    ui->ventanaTCPtxt->setText(conversor.binarioToDecimal(binary.mid(112,16)));
+    ui->checksumTCPtxt->setText(conversor.binarioToHex(binary.mid(128,16)));
+    ui->puntUrgenteTCPtxt->setText(conversor.binarioToDecimal(binary.mid(144,16)));
+    ui->dumpTCPtxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(20)).toUpper()));
+    ui->datosTCP->show();
 }
 
 void MainWindow::resetIP()
