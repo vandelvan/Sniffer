@@ -134,9 +134,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-4379</y>
-         <width>406</width>
-         <height>4526</height>
+         <y>-3592</y>
+         <width>403</width>
+         <height>3959</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -711,7 +711,7 @@ p, li { white-space: pre-wrap; }
            <item>
             <widget class="QGroupBox" name="puertoDestinoTCP">
              <property name="title">
-              <string>Puerto Destino</string>
+              <string>Puerto Destino: </string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_18">
               <item>
@@ -735,7 +735,7 @@ p, li { white-space: pre-wrap; }
            <item>
             <widget class="QGroupBox" name="numeroACKTCP">
              <property name="title">
-              <string>Numero de Acuse</string>
+              <string>Numero de acuse de recibo: </string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_20">
               <item>
@@ -747,7 +747,7 @@ p, li { white-space: pre-wrap; }
            <item>
             <widget class="QGroupBox" name="longitudTCP">
              <property name="title">
-              <string>Longitud de Cabecera</string>
+              <string>Longitud de Cabecera:</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_21">
               <item>
@@ -837,7 +837,7 @@ p, li { white-space: pre-wrap; }
               <item>
                <widget class="QGroupBox" name="pushTCP">
                 <property name="title">
-                 <string>Push</string>
+                 <string>Push:</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_29">
                  <item>
@@ -888,7 +888,7 @@ p, li { white-space: pre-wrap; }
            <item>
             <widget class="QGroupBox" name="ventanaTCP">
              <property name="title">
-              <string>Tamaño de ventana</string>
+              <string>Tamaño de ventana:</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_33">
               <item>
