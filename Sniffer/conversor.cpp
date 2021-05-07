@@ -114,7 +114,7 @@ QString Conversor::stringToDecimalQString(string cadena)
 QString Conversor::binarioToDecimal(QString aux)
 {
     bool Ok;
-    int iValue = aux.toInt(&Ok, 2);
+    int iValue = aux.toUInt(&Ok, 2);
     aux= QString::number(iValue);
     return aux;
 }
@@ -123,7 +123,7 @@ QString Conversor::binarioToDecimal(QString aux)
 QString Conversor::binarioToHex(QString aux)
 {
     bool Ok;
-    int iValue = aux.toInt(&Ok, 2);
+    int iValue = aux.toUInt(&Ok, 2);
     aux= QString::number(iValue, 16);
     aux=aux.toUpper();
     return aux;
@@ -132,7 +132,7 @@ QString Conversor::binarioToHex(QString aux)
 QString Conversor::hexToDecimal(QString aux)
 {
     bool Ok;
-    int iValue = aux.toInt(&Ok, 16);
+    int iValue = aux.toUInt(&Ok, 16);
     aux= QString::number(iValue);
     return aux;
 }
