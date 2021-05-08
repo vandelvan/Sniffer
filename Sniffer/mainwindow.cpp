@@ -204,7 +204,7 @@ void MainWindow::showTCP(string dump){
     ui->ventanaTCPtxt->setText(conversor.binarioToDecimal(binary.mid(112,16)));
     ui->checksumTCPtxt->setText(conversor.binarioToHex(binary.mid(128,16)));
     ui->puntUrgenteTCPtxt->setText(conversor.binarioToDecimal(binary.mid(144,16)));
-    ui->dumpTCPtxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(20)).toUpper()));
+    ui->dumpTCPtxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(40)).toUpper()));
     ui->datosTCP->show();
 }
 

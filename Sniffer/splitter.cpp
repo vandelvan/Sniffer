@@ -206,7 +206,7 @@ QString Splitter::setIP(QString aux){
 
 QString Splitter::setDatos(QString aux){
     QString salida;
-    for(int i=0; i<aux.length(); i++){
+    for(int i=0; i<=aux.length(); i++){
         salida+=aux[i];
         if((i+1)%4==0){
             salida+=" ";
