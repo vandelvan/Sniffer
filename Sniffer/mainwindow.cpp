@@ -37,6 +37,7 @@ void MainWindow::on_seleccionarArchivo_clicked()
     ui->datosICMPGen->hide();
     ui->datosARP->hide();
     ui->datosTCP->hide();
+    ui->datosUDP->hide();
     QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir bin"), "~/", tr("*.bin"));
     QByteArray byteArray = reader.readFile(fileName);
     if(byteArray == nullptr)
@@ -108,6 +109,10 @@ void MainWindow::showIPv4(string dump){
     {
         showTCP(dump.substr(40));
     }
+    else if(protocolo=="UDP")
+    {
+        showUDP(dump.substr(40));
+    }
     else{
         ui->datosExtTxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(40)).toUpper()));
     }
@@ -115,6 +120,7 @@ void MainWindow::showIPv4(string dump){
 
 void MainWindow::showICMPv4(string dump){
     ui->datosExt->hide();
+    ui->datosICMPGen->setTitle("ICMPv4");
     QString binary = conversor.hexToBinaryQString(dump);
     ui->tipoICMPvTxt->setText(splitter.tipoICMP(binary.mid(0, 8)));
     ui->codeICMPvTxt->setText(splitter.codigoICMP(binary.mid(8, 8)));
@@ -166,6 +172,14 @@ void MainWindow::showIPv6(string dump){
     if(protocolo=="ICMPv6"){
         showICMPv6(dump.substr(80));
     }
+    else if(protocolo=="TCP")
+    {
+        showTCP(dump.substr(80));
+    }
+    else if(protocolo=="UDP")
+    {
+        showUDP(dump.substr(80));
+    }
     else{
         ui->datosExtTxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(80)).toUpper()));
     }
@@ -174,6 +188,7 @@ void MainWindow::showIPv6(string dump){
 
 void MainWindow::showICMPv6(string dump){
     ui->datosExt->hide();
+    ui->datosICMPGen->setTitle("ICMPv6");
     QString tipoICMPv6=splitter.tipoICMPv6(QString::fromStdString(dump.substr(0, 2)));
     ui->tipoICMPvTxt->setText(tipoICMPv6);
     ui->codeICMPvTxt->setText(splitter.codigoICMPv6(QString::fromStdString(dump.substr(2, 2)), tipoICMPv6));
@@ -206,6 +221,19 @@ void MainWindow::showTCP(string dump){
     ui->puntUrgenteTCPtxt->setText(conversor.binarioToDecimal(binary.mid(144,16)));
     ui->dumpTCPtxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(40)).toUpper()));
     ui->datosTCP->show();
+}
+
+
+void MainWindow::showUDP(string dump)
+{
+    ui->datosExt->hide();
+    QString binary = conversor.hexToBinaryQString(dump);
+    ui->puertoOrigenUDPtxt->setText(splitter.puertosTCP(binary.mid(0,16)));
+    ui->puertoDestinoUDPtxt->setText(splitter.puertosTCP(binary.mid(16,16)));
+    ui->longitudUDPtxt->setText(conversor.binarioToDecimal(binary.mid(32,16)) + " palabras");
+    ui->checksumUDPtxt->setText(conversor.binarioToHex(binary.mid(48,16)));
+    ui->dumpUDPtxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(16)).toUpper()));
+    ui->datosUDP->show();
 }
 
 void MainWindow::resetIP()

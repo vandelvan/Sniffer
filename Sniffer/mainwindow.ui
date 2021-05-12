@@ -134,9 +134,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-3592</y>
+         <y>-1353</y>
          <width>403</width>
-         <height>3959</height>
+         <height>4374</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -929,6 +929,95 @@ p, li { white-space: pre-wrap; }
              <layout class="QVBoxLayout" name="verticalLayout_36">
               <item>
                <widget class="QTextEdit" name="dumpTCPtxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="datosUDP">
+          <property name="title">
+           <string>UDP</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_37">
+           <item>
+            <widget class="QGroupBox" name="puertoOrigenUDP">
+             <property name="title">
+              <string>Puerto Origen:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_38">
+              <item>
+               <widget class="QLineEdit" name="puertoOrigenUDPtxt">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="puertoDestinoUDP">
+             <property name="title">
+              <string>Puerto Destino:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_39">
+              <item>
+               <widget class="QLineEdit" name="puertoDestinoUDPtxt">
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="longitudUDP">
+             <property name="title">
+              <string>Longitud total:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_40">
+              <item>
+               <widget class="QLineEdit" name="longitudUDPtxt">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="checksumUDP">
+             <property name="title">
+              <string>Checksum:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_41">
+              <item>
+               <widget class="QLineEdit" name="checksumUDPtxt">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="dumpUDP">
+             <property name="title">
+              <string>Datos:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_42">
+              <item>
+               <widget class="QTextEdit" name="dumpUDPtxt">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>

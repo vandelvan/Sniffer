@@ -113,6 +113,7 @@ QString Conversor::stringToDecimalQString(string cadena)
 
 QString Conversor::binarioToDecimal(QString aux)
 {
+    //aux=QString::fromStdString(intToString(binaryToDecimal(aux.toLongLong())));
     bool Ok;
     int iValue = aux.toUInt(&Ok, 2);
     aux= QString::number(iValue);
