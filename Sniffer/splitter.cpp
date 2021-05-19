@@ -530,7 +530,7 @@ QString Splitter::puertosTCP(QString aux)
 {
     QString puerto = conversor.binarioToDecimal(aux);
     int prt = puerto.toInt();
-    if(prt == 0 && prt <= 1023)
+    if(prt >= 0 && prt <= 1023)
     {
         puerto += " Puerto conocido";
         switch (prt) {
