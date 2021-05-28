@@ -23,13 +23,11 @@ MainWindow::MainWindow(QWidget *parent)
     }
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow(){
     delete ui;
 }
 
-void MainWindow::on_seleccionarArchivo_clicked()
-{
+void MainWindow::on_seleccionarArchivo_clicked(){
     this->resize(440, 200);
     ui->pathArchivo->hide();
     ui->datosPaquete->hide();
@@ -230,8 +228,7 @@ void MainWindow::showTCP(string dump){
     }
 }
 
-void MainWindow::showUDP(string dump)
-{
+void MainWindow::showUDP(string dump){
     ui->datosExt->hide();
     QString binary = conversor.hexToBinaryQString(dump);
     ui->puertoOrigenUDPtxt->setText(splitter.puertosTCP(binary.mid(0,16)));
@@ -248,8 +245,7 @@ void MainWindow::showUDP(string dump)
 
 }
 
-void MainWindow::resetIP()
-{
+void MainWindow::resetIP(){
     ui->tipoServicio->setTitle("Tipo de servicio: ");
     ui->protocolo->setTitle("Protocolo: ");
     ui->ttl->setTitle("Tiempo de vida (TTL): ");
