@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->datosICMPGen->hide();
     ui->datosARP->hide();
     ui->datosTCP->hide();
+    ui->datosDNS->hide();
     foreach(QLineEdit* le, findChildren<QLineEdit*>()) {
         le->setReadOnly(true);
     }
@@ -38,6 +39,7 @@ void MainWindow::on_seleccionarArchivo_clicked()
     ui->datosARP->hide();
     ui->datosTCP->hide();
     ui->datosUDP->hide();
+    ui->datosDNS->hide();
     QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir bin"), "~/", tr("*.bin"));
     QByteArray byteArray = reader.readFile(fileName);
     if(byteArray == nullptr)
@@ -221,8 +223,12 @@ void MainWindow::showTCP(string dump){
     ui->puntUrgenteTCPtxt->setText(conversor.binarioToDecimal(binary.mid(144,16)));
     ui->dumpTCPtxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(40)).toUpper()));
     ui->datosTCP->show();
-}
 
+    if(conversor.binarioToDecimal(binary.mid(0,16))=="53"||
+       conversor.binarioToDecimal(binary.mid(16,16))=="53"){
+        showDNS(dump.substr(40));
+    }
+}
 
 void MainWindow::showUDP(string dump)
 {
@@ -234,6 +240,12 @@ void MainWindow::showUDP(string dump)
     ui->checksumUDPtxt->setText(conversor.binarioToHex(binary.mid(48,16)));
     ui->dumpUDPtxt->setText(splitter.setDatos(QString::fromStdString(dump.substr(16)).toUpper()));
     ui->datosUDP->show();
+
+    if(conversor.binarioToDecimal(binary.mid(0,16))=="53"||
+       conversor.binarioToDecimal(binary.mid(16,16))=="53"){
+        showDNS(dump.substr(16));
+    }
+
 }
 
 void MainWindow::resetIP()
@@ -248,4 +260,20 @@ void MainWindow::resetIP()
     ui->flags->show();
     ui->fragmento->show();
     ui->checksum->show();
+}
+
+void MainWindow::showDNS(string dump){
+    QString binary = conversor.hexToBinaryQString(dump);
+    ui->idDnsTxt->setText(QString::fromStdString(dump.substr(0, 4)).toUpper());
+    ui->flagsDnsTxt->setText(splitter.banderasDNS(binary.mid(16,9)));
+    ui->opCodeDnsTxt->setText(splitter.opCodeDNS(conversor.binarioToDecimal(binary.mid(17,4))));
+    ui->rCodeDnsTxt->setText(splitter.rCode(conversor.binarioToDecimal(binary.mid(28,4))));
+    ui->QDcountTxt->setText(conversor.binarioToDecimal(binary.mid(32,16)));
+    ui->ANcountTxt->setText(conversor.binarioToDecimal(binary.mid(48,16)));
+    ui->NScountTxt->setText(conversor.binarioToDecimal(binary.mid(64,16)));
+    ui->ARcountTxt->setText(conversor.binarioToDecimal(binary.mid(80,16)));
+    ui->nombreDominioTxt->setText(splitter.nombreDominio(dump.substr(24)));
+    ui->preguntaTipoDnsTxt->setText(splitter.tipoDns(dump.substr(24)));
+    ui->preguntaClaseDnsTxt->setText(splitter.claseDns(dump.substr(24)));
+    ui->datosDNS->show();
 }

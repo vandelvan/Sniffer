@@ -582,4 +582,127 @@ int Splitter::getLongitud(QString aux)
     return conversor.binarioToDecimal(aux).toInt()*8;
 }
 
+QString Splitter::banderasDNS(QString aux){
+    QString banderas;
+    banderas+="QR: "+aux[0]+"\n";
+    banderas+="AA: "+aux[5]+"\n";
+    banderas+="TC: "+aux[6]+"\n";
+    banderas+="RD: "+aux[7]+"\n";
+    banderas+="RA: "+aux[8]+"\n";
+    banderas+="Z: 0\n";
+    banderas+="AD: 0\n";
+    banderas+="CD: 0";
+    return banderas;
+}
 
+QString Splitter::opCodeDNS(QString aux){
+    QString opcode;
+    if(aux=="0"){
+        opcode="0 Consulta estandar(QUERY)";
+    }else if(aux=="1"){
+        opcode="1 Consulta inversa(iQUERY)";
+    }else if(aux=="2"){
+        opcode="2 Solicitud del estado del servidor(STATUS)";
+    }else{
+        opcode="Codigo no valido";
+    }
+    return opcode;
+}
+
+QString Splitter::rCode(QString aux){
+    QString rcode;
+    if(aux=="0"){
+        rcode="0 Ningun error";
+    }else if(aux=="1"){
+        rcode="1 Error de formato";
+    }else if(aux=="2"){
+        rcode="2 Fallo en el servidor";
+    }else if(aux=="3"){
+        rcode="3 Error en nombre";
+    }else if(aux=="4"){
+        rcode="4 No implementado";
+    }else if(aux=="5"){
+        rcode="5 Rechazado";
+    }
+    return rcode;
+}
+
+QString Splitter::nombreDominio(string aux){
+    QString nombre;
+    int i=0, letras, let;
+    char a;
+    do{
+        letras = stoi(aux.substr(i,2), 0, 16);
+        i+=2;
+        for(int j=0; j<letras; j++){
+            let=stoi(aux.substr(i,2), 0, 16);
+            i+=2;
+            a=let;
+            nombre+=a;
+        }
+        if(letras!=0){
+            nombre+='.';
+        }
+    }while(letras!=0);
+    return nombre;
+}
+
+
+QString Splitter::tipoDns(string aux){
+    QString tipo;
+    int i=0, iterador;
+    do{
+        iterador = stoi(aux.substr(i,2), 0, 16);
+        i+=2;
+    }while(iterador!=0);
+    iterador=stoi(aux.substr(i,4), 0, 16);
+    switch (iterador) {
+        case 1:{
+            tipo="1- A";
+            break;
+        }
+        case 5:{
+            tipo="5- CNAME";
+            break;
+        }
+        case 13:{
+            tipo="13- HINFO";
+            break;
+        }
+        case 15:{
+            tipo="15- MX";
+            break;
+        }
+        case 22:{
+            tipo="22- NS";
+            break;
+        }
+        case 23:{
+            tipo="23- NS";
+            break;
+        }
+    }
+    return tipo;
+}
+
+
+QString Splitter::claseDns(string aux){
+    QString clase;
+    int i=0, iterador;
+    do{
+        iterador = stoi(aux.substr(i,2), 0, 16);
+        i+=2;
+    }while(iterador!=0);
+    iterador=stoi(aux.substr(i+4,4), 0, 16);
+    switch (iterador) {
+        case 1:{
+            clase="1- IN";
+            break;
+        }
+        case 3:{
+            clase="3- CH";
+            break;
+        }
+    }
+    return clase;
+}
