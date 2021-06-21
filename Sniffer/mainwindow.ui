@@ -95,6 +95,28 @@
      </widget>
     </item>
     <item>
+     <widget class="QGroupBox" name="pcapGroup">
+      <property name="title">
+       <string>Leer desde tarjeta de red</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_43">
+       <item>
+        <widget class="QComboBox" name="devicesBox"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="sniffBtn">
+         <property name="text">
+          <string>Sniff</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="pktList"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
      <widget class="QLabel" name="pathArchivo">
       <property name="minimumSize">
        <size>
@@ -134,9 +156,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-1353</y>
-         <width>403</width>
-         <height>4374</height>
+         <y>0</y>
+         <width>406</width>
+         <height>5000</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">

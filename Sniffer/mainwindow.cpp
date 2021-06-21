@@ -20,6 +20,14 @@ MainWindow::MainWindow(QWidget *parent)
     foreach(QTextEdit* te, findChildren<QTextEdit*>()) {
         te->setReadOnly(true);
     }
+    pcap_findalldevs(&devs,errbuf);
+    dev = devs->next;
+    while(dev->next != NULL)
+    {
+        QString devStr = QString::fromStdString(string(dev->name) + " - " + string(dev->description));
+        ui->devicesBox->addItem(devStr);
+        dev = dev->next;
+    }
 }
 
 MainWindow::~MainWindow()
@@ -248,4 +256,36 @@ void MainWindow::resetIP()
     ui->flags->show();
     ui->fragmento->show();
     ui->checksum->show();
+}
+
+//Sniffer desde dispositivo de red
+
+void pktManage(u_char *useless,const struct pcap_pkthdr* pkthdr,const u_char* packet)
+{
+    static int count = 1;
+    fprintf(stdout," %d, ",count);
+    fflush(stdout);
+    count++;
+}
+
+void MainWindow::on_sniffBtn_clicked()
+{
+    QString devAux = ui->devicesBox->currentText();
+    bool f = false;
+    dev = devs->next;
+    while(dev->next != NULL)
+    {
+        if(devAux == QString::fromStdString(string(dev->name) + " - " + string(dev->description)))
+        {
+            f = true;
+            break;
+        }
+        dev = dev->next;
+    }
+    if(f)
+    {
+        pcap_t *liveData = pcap_open_live((char*)dev, BUFSIZ, 0, -1, errbuf);
+        struct pcap_pkthdr hdr;
+        pcap_loop(liveData,-1,pktManage,NULL);
+    }
 }

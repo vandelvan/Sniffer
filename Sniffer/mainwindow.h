@@ -9,6 +9,7 @@
 #include <QString>
 #include <QFileDialog>
 #include <QDebug>
+#include <pcap.h>
 
 using namespace std;
 
@@ -27,6 +28,8 @@ public:
 private slots:
     void on_seleccionarArchivo_clicked();
 
+    void on_sniffBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     void showEthernet(string);
@@ -41,5 +44,9 @@ private:
     Reader reader;
     Conversor conversor;
     Splitter splitter;
+    //pcap
+    char errbuf[PCAP_ERRBUF_SIZE];
+    pcap_if_t *devs;
+    pcap_if_t *dev;
 };
 #endif // MAINWINDOW_H
