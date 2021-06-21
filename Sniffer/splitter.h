@@ -4,6 +4,7 @@
 #include <conversor.h>
 
 #include <QString>
+#include <string>
 
 class Splitter{
 public:
@@ -28,6 +29,12 @@ public:
     QString opCodeARP(QString aux);
     QString tipoCodigoARP(QString aux);
     QString puertosTCP(QString aux);
+    QString banderasDNS(QString aux);
+    QString opCodeDNS(QString aux);
+    QString rCode(QString aux);
+    QString nombreDominio(std::string aux);
+    QString tipoDns(std::string aux);
+    QString claseDns(std::string aux);
     int getLongitud(QString aux);
 private:
     Conversor conversor;

@@ -40,6 +40,7 @@ private:
     void showICMPv6(string);
     void showTCP(string);
     void showUDP(string);
+    void showDNS(string);
     void resetIP();
     Reader reader;
     Conversor conversor;

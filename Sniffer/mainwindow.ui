@@ -159,6 +159,9 @@
          <y>0</y>
          <width>406</width>
          <height>5000</height>
+         <y>-4245</y>
+         <width>403</width>
+         <height>5301</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1039,6 +1042,166 @@ p, li { white-space: pre-wrap; }
                 <property name="readOnly">
                  <bool>true</bool>
                 </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="datosDNS">
+          <property name="title">
+           <string>DNS</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_43">
+           <item>
+            <widget class="QGroupBox" name="idDns">
+             <property name="title">
+              <string>ID:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_44">
+              <item>
+               <widget class="QLineEdit" name="idDnsTxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="flagsDns">
+             <property name="title">
+              <string>Flags</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_45">
+              <item>
+               <widget class="QTextEdit" name="flagsDnsTxt">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>150</height>
+                 </size>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="opCodeDns">
+             <property name="title">
+              <string>OpCode:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_46">
+              <item>
+               <widget class="QLineEdit" name="opCodeDnsTxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="rCodeDns">
+             <property name="title">
+              <string>RCode:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_52">
+              <item>
+               <widget class="QLineEdit" name="rCodeDnsTxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="QDcount">
+             <property name="title">
+              <string>QDcount:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_47">
+              <item>
+               <widget class="QLineEdit" name="QDcountTxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="ANcount">
+             <property name="title">
+              <string>ANcount:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_48">
+              <item>
+               <widget class="QLineEdit" name="ANcountTxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="NScount">
+             <property name="title">
+              <string>NScount:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_49">
+              <item>
+               <widget class="QLineEdit" name="NScountTxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="ARcount">
+             <property name="title">
+              <string>ARcount:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_50">
+              <item>
+               <widget class="QLineEdit" name="ARcountTxt"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="PreguntaDNS">
+             <property name="title">
+              <string>Preguntas:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_51">
+              <item>
+               <widget class="QGroupBox" name="nombreDominio">
+                <property name="title">
+                 <string>Nombre de dominio:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_53">
+                 <item>
+                  <widget class="QLineEdit" name="nombreDominioTxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="preguntaTipoDns">
+                <property name="title">
+                 <string>Tipo:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_54">
+                 <item>
+                  <widget class="QLineEdit" name="preguntaTipoDnsTxt"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="preguntaClaseDns">
+                <property name="title">
+                 <string>Clase:</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_55">
+                 <item>
+                  <widget class="QLineEdit" name="preguntaClaseDnsTxt"/>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
