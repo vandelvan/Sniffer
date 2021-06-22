@@ -9,6 +9,7 @@
 #include <QString>
 #include <QFileDialog>
 #include <QDebug>
+#include <algorithm>
 #include <pcap.h>
 
 using namespace std;
@@ -31,7 +32,10 @@ private slots:
 
     void on_sniffBtn_clicked();
 
+    void on_pktList_itemClicked(QListWidgetItem *item);
+
 private:
+    void startRead(string);
     void showEthernet(string);
     void showIPv4(string);
     void showICMPv4(string);

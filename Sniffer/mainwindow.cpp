@@ -36,16 +36,6 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::on_seleccionarArchivo_clicked(){
-    this->resize(440, 200);
-    ui->pathArchivo->hide();
-    ui->datosPaquete->hide();
-    ui->datosEthernet->hide();
-    ui->datosIP->hide();
-    ui->datosICMPGen->hide();
-    ui->datosARP->hide();
-    ui->datosTCP->hide();
-    ui->datosUDP->hide();
-    ui->datosDNS->hide();
     QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir bin"), "~/", tr("*.bin"));
     QByteArray byteArray = reader.readFile(fileName);
     if(byteArray == nullptr)
@@ -56,7 +46,7 @@ void MainWindow::on_seleccionarArchivo_clicked(){
     {
         ui->pathArchivo->setText(fileName);
         ui->pathArchivo->show();
-        showEthernet(byteArray.toHex().toStdString());
+        startRead(byteArray.toHex().toStdString());
     }
 }
 
@@ -266,26 +256,11 @@ void MainWindow::resetIP(){
     ui->checksum->show();
 }
 
-//Sniffer desde dispositivo de red
-
-void pktManage(u_char *uiC,const struct pcap_pkthdr* pkthdr,const u_char* packet)
-{
-    QListWidget *ui = (QListWidget*)uiC;
-    struct tm *ltime;
-    char timestr[16];
-    time_t local_tv_sec;
-    local_tv_sec = pkthdr->ts.tv_sec;
-    ltime=localtime(&local_tv_sec);
-    strftime( timestr, sizeof timestr, "%H:%M:%S", ltime);
-    static int count = 1;
-    qDebug() << timestr << pkthdr;
-    count++;
-    ui->addItem("xd");
-}
 
 void MainWindow::on_sniffBtn_clicked()
 {
     QString devAux = ui->devicesBox->currentText();
+    this->resize(440,440);
     bool f = false;
     dev = devs->next;
     while(dev->next != NULL)
@@ -299,14 +274,55 @@ void MainWindow::on_sniffBtn_clicked()
     }
     if(f)
     {
-        liveData = pcap_open_live(dev->name, BUFSIZ, 0, -1, errbuf);
+        liveData = pcap_open_live(dev->name, 65536, 1, 1000, errbuf);
         struct pcap_pkthdr hdr;
-        int a;
-        pcap_loop(liveData,0,pktManage,(u_char*)ui->pktList);
+        const u_char *pkt_data;
+        struct pcap_pkthdr *header;
+        int cont=0,res,i;
+        while((res = pcap_next_ex( liveData, &header, &pkt_data)) >= 0 && cont<64)
+            {
+
+                QString aux="",final="";
+
+                if(res == 0)
+                    /* Timeout elapsed */
+                    continue;
+
+                /* print pkt timestamp and pkt len */
+//                printf("Paquete (%d) %ld:%ld (%ld)\n",cont+1, header->ts.tv_sec, header->ts.tv_usec, header->len);
+
+
+                /* Print the packet */
+                for (i=1; (i < header->caplen + 1 ) ; i++)
+                {
+                    char dat[8];
+                    sprintf(dat,"%.2x ", pkt_data[i-1]);
+//                    printf("%.2x ", pkt_data[i-1]);
+                    aux=QString::fromStdString(dat);
+                    final+=aux;
+
+//                    if ( (i % 16) == 0) printf("\n");
+                }
+                final = final.trimmed();
+                final = final.replace( " ", "" );
+//                aux = final;
+//                final = "";
+//                for(i = 0; i < aux.length(); i++){
+//                    if((i)%4==0 && i != 0)
+//                        final += " ";
+//                    final += aux[i];
+//                }
+                ui->pktList->addItem(final.toUpper());
+                printf("\n\n");
+                cont++;
+
+
+            }
         pcap_close(liveData);
     }
-    //pcap_freealldevs(devs); //libera a los dispositivos
 }
+
+
 void MainWindow::showDNS(string dump){
     QString binary = conversor.hexToBinaryQString(dump);
     ui->idDnsTxt->setText(QString::fromStdString(dump.substr(0, 4)).toUpper());
@@ -322,3 +338,29 @@ void MainWindow::showDNS(string dump){
     ui->preguntaClaseDnsTxt->setText(splitter.claseDns(dump.substr(24)));
     ui->datosDNS->show();
 }
+
+void MainWindow::on_pktList_itemClicked(QListWidgetItem *item)
+{
+    QString dump = item->text();
+    startRead(dump.toStdString());
+}
+
+void MainWindow::startRead(string dump)
+{
+    char a[dump.length()];
+    for(int i = 0; i<dump.length(); i++)
+        a[i] = dump[i];
+    printf("%s",a);
+    this->resize(440, 200);
+    ui->pathArchivo->hide();
+    ui->datosPaquete->hide();
+    ui->datosEthernet->hide();
+    ui->datosIP->hide();
+    ui->datosICMPGen->hide();
+    ui->datosARP->hide();
+    ui->datosTCP->hide();
+    ui->datosUDP->hide();
+    ui->datosDNS->hide();
+//    showEthernet(dump);
+}
+
