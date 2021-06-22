@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     conversor.cpp \
+    listsniff.cpp \
     main.cpp \
     mainwindow.cpp \
     reader.cpp \
@@ -17,11 +18,13 @@ SOURCES += \
 
 HEADERS += \
     conversor.h \
+    listsniff.h \
     mainwindow.h \
     reader.h \
     splitter.h
 
 FORMS += \
+    listsniff.ui \
     mainwindow.ui
 
 RC_FILE = SnifferIco.rc
@@ -30,3 +33,8 @@ RC_FILE = SnifferIco.rc
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+LIBS += -L$$PWD/npcap-sdk-1.07/Lib/x64 -lwpcap -lPacket
+
+INCLUDEPATH += $$PWD/npcap-sdk-1.07/Include
+DEPENDPATH += $$PWD/npcap-sdk-1.07/Include

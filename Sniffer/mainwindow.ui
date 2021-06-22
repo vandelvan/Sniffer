@@ -110,9 +110,6 @@
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QListWidget" name="pktList"/>
-       </item>
       </layout>
      </widget>
     </item>
@@ -158,10 +155,7 @@
          <x>0</x>
          <y>0</y>
          <width>406</width>
-         <height>5000</height>
-         <y>-4245</y>
-         <width>403</width>
-         <height>5301</height>
+         <height>5930</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">

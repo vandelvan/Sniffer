@@ -270,10 +270,20 @@ void MainWindow::resetIP(){
 
 void pktManage(u_char *useless,const struct pcap_pkthdr* pkthdr,const u_char* packet)
 {
+    struct tm *ltime;
+    char timestr[16];
+    time_t local_tv_sec;
+    local_tv_sec = pkthdr->ts.tv_sec;
+    ltime=localtime(&local_tv_sec);
+    strftime( timestr, sizeof timestr, "%H:%M:%S", ltime);
     static int count = 1;
-    fprintf(stdout," %d, ",count);
+    fprintf(stdout,"%s,%.6d - %d, \n",timestr, count);
     fflush(stdout);
     count++;
+    listSniff l;
+    l.show();
+    l.ui->pktList->addItem("");
+
 }
 
 void MainWindow::on_sniffBtn_clicked()
@@ -292,10 +302,14 @@ void MainWindow::on_sniffBtn_clicked()
     }
     if(f)
     {
-        pcap_t *liveData = pcap_open_live((char*)dev, BUFSIZ, 0, -1, errbuf);
+        pcap_t *liveData = pcap_open_live(dev->name, BUFSIZ, 0, -1, errbuf);
         struct pcap_pkthdr hdr;
-        pcap_loop(liveData,-1,pktManage,NULL);
+        int a;
+        pcap_loop(liveData,0,pktManage,NULL);
+        pcap_close(liveData);
     }
+    pcap_freealldevs(devs); //libera a los dispositivos
+}
 void MainWindow::showDNS(string dump){
     QString binary = conversor.hexToBinaryQString(dump);
     ui->idDnsTxt->setText(QString::fromStdString(dump.substr(0, 4)).toUpper());

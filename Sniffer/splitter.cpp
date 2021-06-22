@@ -3,7 +3,7 @@
 using namespace std;
 
 QString Splitter::macDestino(string dump){
-    QString macD;
+    string macD;
     int i;
     for(i=0;i<12;i++)
     {
@@ -13,18 +13,18 @@ QString Splitter::macDestino(string dump){
             macD+=":";
         }
     }
-    return macD;
+    return QString::fromStdString(macD);
 }
 
 
 QString Splitter::macOrigen(string dump){
-    QString macD;
+    string macD;
     int i;
     for(i=12;i<24;i++){
         macD += toupper(dump[i]);
         if((i+1)%2==0 && i!=23){ macD+=":";}
     }
-    return macD;
+    return QString::fromStdString(macD);
 }
 
 QString Splitter::mac128(QString binary){
@@ -55,7 +55,7 @@ QString Splitter::relleno(QString cad)
 }
 
 QString Splitter::tipoCodigo(string dump){
-    QString tipo="";
+    string tipo="";
     for(int i=24;i<28;i++)
     {
         tipo+=toupper(dump[i]);
@@ -83,7 +83,7 @@ QString Splitter::tipoCodigo(string dump){
     {
         tipo="Invalid Type\n";
     }
-    return tipo;
+    return QString::fromStdString(tipo);
 }
 
 QString Splitter::versionIP(QString aux){
@@ -584,11 +584,21 @@ int Splitter::getLongitud(QString aux)
 
 QString Splitter::banderasDNS(QString aux){
     QString banderas;
-    banderas+="QR: "+aux[0]+"\n";
-    banderas+="AA: "+aux[5]+"\n";
-    banderas+="TC: "+aux[6]+"\n";
-    banderas+="RD: "+aux[7]+"\n";
-    banderas+="RA: "+aux[8]+"\n";
+    banderas.append("QR: ");
+    banderas.append(aux[0]);
+    banderas.append("\n");
+    banderas.append("AA: ");
+    banderas.append(aux[5]);
+    banderas.append("\n");
+    banderas.append("TC: ");
+    banderas.append(aux[6]);
+    banderas.append("\n");
+    banderas.append("RD: ");
+    banderas.append(aux[7]);
+    banderas.append("\n");
+    banderas.append("RA: ");
+    banderas.append(aux[8]);
+    banderas.append("\n");
     banderas+="Z: 0\n";
     banderas+="AD: 0\n";
     banderas+="CD: 0";

@@ -10,6 +10,7 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <pcap.h>
+#include <listsniff.h>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    Ui::MainWindow *ui;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
@@ -31,7 +33,6 @@ private slots:
     void on_sniffBtn_clicked();
 
 private:
-    Ui::MainWindow *ui;
     void showEthernet(string);
     void showIPv4(string);
     void showICMPv4(string);
