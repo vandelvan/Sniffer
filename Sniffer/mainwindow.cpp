@@ -361,6 +361,6 @@ void MainWindow::startRead(string dump)
     ui->datosTCP->hide();
     ui->datosUDP->hide();
     ui->datosDNS->hide();
-//    showEthernet(dump);
+    showEthernet(dump);
 }
 
