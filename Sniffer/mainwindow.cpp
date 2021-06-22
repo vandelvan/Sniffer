@@ -268,8 +268,9 @@ void MainWindow::resetIP(){
 
 //Sniffer desde dispositivo de red
 
-void pktManage(u_char *useless,const struct pcap_pkthdr* pkthdr,const u_char* packet)
+void pktManage(u_char *uiC,const struct pcap_pkthdr* pkthdr,const u_char* packet)
 {
+    QListWidget *ui = (QListWidget*)uiC;
     struct tm *ltime;
     char timestr[16];
     time_t local_tv_sec;
@@ -277,13 +278,9 @@ void pktManage(u_char *useless,const struct pcap_pkthdr* pkthdr,const u_char* pa
     ltime=localtime(&local_tv_sec);
     strftime( timestr, sizeof timestr, "%H:%M:%S", ltime);
     static int count = 1;
-    fprintf(stdout,"%s,%.6d - %d, \n",timestr, count);
-    fflush(stdout);
+    qDebug() << timestr << pkthdr;
     count++;
-    listSniff l;
-    l.show();
-    l.ui->pktList->addItem("");
-
+    ui->addItem("xd");
 }
 
 void MainWindow::on_sniffBtn_clicked()
@@ -302,13 +299,13 @@ void MainWindow::on_sniffBtn_clicked()
     }
     if(f)
     {
-        pcap_t *liveData = pcap_open_live(dev->name, BUFSIZ, 0, -1, errbuf);
+        liveData = pcap_open_live(dev->name, BUFSIZ, 0, -1, errbuf);
         struct pcap_pkthdr hdr;
         int a;
-        pcap_loop(liveData,0,pktManage,NULL);
+        pcap_loop(liveData,0,pktManage,(u_char*)ui->pktList);
         pcap_close(liveData);
     }
-    pcap_freealldevs(devs); //libera a los dispositivos
+    //pcap_freealldevs(devs); //libera a los dispositivos
 }
 void MainWindow::showDNS(string dump){
     QString binary = conversor.hexToBinaryQString(dump);

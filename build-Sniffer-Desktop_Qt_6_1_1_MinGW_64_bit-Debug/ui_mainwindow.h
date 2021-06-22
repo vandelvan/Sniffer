@@ -15,6 +15,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
@@ -35,6 +36,7 @@ public:
     QVBoxLayout *verticalLayout_43;
     QComboBox *devicesBox;
     QPushButton *sniffBtn;
+    QListWidget *pktList;
     QLabel *pathArchivo;
     QScrollArea *datosPaquete;
     QWidget *scrollAreaWidgetContents_2;
@@ -309,6 +311,12 @@ public:
         sniffBtn->setObjectName(QString::fromUtf8("sniffBtn"));
 
         verticalLayout_43->addWidget(sniffBtn);
+
+        pktList = new QListWidget(pcapGroup);
+        pktList->setObjectName(QString::fromUtf8("pktList"));
+        pktList->setMinimumSize(QSize(100, 100));
+
+        verticalLayout_43->addWidget(pktList);
 
 
         verticalLayout_4->addWidget(pcapGroup);

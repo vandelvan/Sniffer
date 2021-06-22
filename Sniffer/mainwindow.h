@@ -10,7 +10,6 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <pcap.h>
-#include <listsniff.h>
 
 using namespace std;
 
@@ -50,5 +49,6 @@ private:
     char errbuf[PCAP_ERRBUF_SIZE];
     pcap_if_t *devs;
     pcap_if_t *dev;
+    pcap_t *liveData;
 };
 #endif // MAINWINDOW_H

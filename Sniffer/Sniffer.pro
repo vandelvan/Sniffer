@@ -10,7 +10,6 @@ CONFIG += c++11
 
 SOURCES += \
     conversor.cpp \
-    listsniff.cpp \
     main.cpp \
     mainwindow.cpp \
     reader.cpp \
@@ -18,13 +17,11 @@ SOURCES += \
 
 HEADERS += \
     conversor.h \
-    listsniff.h \
     mainwindow.h \
     reader.h \
     splitter.h
 
 FORMS += \
-    listsniff.ui \
     mainwindow.ui
 
 RC_FILE = SnifferIco.rc
